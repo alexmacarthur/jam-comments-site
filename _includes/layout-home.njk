@@ -38,5 +38,13 @@
         <footer class="text-center mt-10">
             <span>&copy; 2020 JamComments | Created by <a target="_blank" rel="noopener noreferrer" href="https://macarthur.me">Alex MacArthur<a>.
         </footer>
+
+        {% set js %}
+            {% include "scripts.js" %}
+        {% endset %}
+
+        <script>
+            {{ js | jsmin | safe }}
+        </script>
     </body>
 </html>
