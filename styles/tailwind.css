@@ -11,3 +11,7 @@
 svg {
     @apply max-w-full max-h-full;
 }
+
+a {
+    @apply font-semibold;
+}

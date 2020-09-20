@@ -18803,6 +18803,10 @@ svg {
   max-height: 100%;
 }
 
+a {
+  font-weight: 600;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

@@ -1,0 +1,12 @@
+<div class="space-y-12">
+    {% for highlight in homeHighlights %}
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-2xl font-semibold leading-snug mb-2">
+                {{ highlight.heading | safe }}
+            </h2>
+            <p>
+                {{ highlight.description | safe }}
+            </p>
+        </div>
+    {% endfor %}
+<div>
