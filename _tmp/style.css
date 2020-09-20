@@ -18798,6 +18798,11 @@ video {
   font-family: 'Heebo', sans-serif;
 }
 
+svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

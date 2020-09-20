@@ -3,33 +3,47 @@
 {% block title %}JamComments: Stupid, Simple, Static Comments{% endblock %}
 
 {% block content %}
-<div class="max-w-5xl mx-auto px-3">
-    <div class="text-center pt-10 mb-12 mx-auto max-w-3xl">
-        <h1 class="font-bold text-3xl md:text-6xl leading-tight mb-4">Stupid, Simple Comments for the Jamstack</h1>
-        <h2 class="text-xl md:text-2xl">
-            statically rendered, ad-free, nothing fancy.
-        </h2>
-    </div>
+    <div class="max-w-5xl mx-auto px-3">
+        <div class="text-center pt-10 mb-12 mx-auto max-w-3xl">
+            <h1 class="font-bold text-3xl md:text-6xl leading-tight mb-4">Stupid, Simple Comments for the Jamstack</h1>
+            <h2 class="text-xl md:text-2xl">
+                statically rendered, ad-free, nothing fancy.
+            </h2>
+        </div>
 
-    <div class="text-center mb-12">
-        <a 
-            class="bg-gray-200 rounded-md py-2 px-4 text-gray-800 shadow-sm"
-            href="https://app.jamcomments.com/login">Log In or Sign Up</a>
-    </div>
+        {# <div class="my-20">
+            <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 my-5 shadow-none border-0" />
 
-    <div class="my-20">
-        <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 my-5 shadow-none border-0" />
+            <ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for perk in homeSteps %}
+                    <li class="text-center">
+                        <h3 class="text-2xl mb-3 font-semibold">{{ perk.heading }}</h3>
+                        <p>{{ perk.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
 
-        <ul class="grid grid-cols-3 gap-6">
-            {% for perk in steps %}
-                <li class="text-center">
-                    <h3 class="text-2xl mb-3">{{ perk.heading }}</h3>
-                    <p>{{ perk.description }}</p>
-                </li>
+            <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 my-5 shadow-none border-0" />
+        </div> #}
+
+        <div class="h-20 mb-16">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+            </svg>
+        </div>
+
+        <div class="space-y-12">
+            {% for highlight in homeHighlights %}
+                <div class="max-w-xl mx-auto">
+                    <h2 class="text-2xl font-semibold leading-snug mb-2">
+                        {{ highlight.heading | safe }}
+                    </h2>
+                    <p>
+                        {{ highlight.description | safe }}
+                    </p>
+                </div>
             {% endfor %}
-        </ul>
-
-        <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 my-5 shadow-none border-0" />
+        <div>
+        
     </div>
-</div>
 {% endblock %}
