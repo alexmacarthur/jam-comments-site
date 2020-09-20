@@ -13,7 +13,14 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
         <style type="text/css">{{googleFontsStylesheet | safe}}</style>
-        <link rel="stylesheet" href="/style.css?v={% version %}"/>
+
+        {% set css %}
+            {% include "style.css" %}
+        {% endset %}
+
+        <style>
+            {{ css | cssmin | safe }}
+        </style>
 
         {% include "google-analytics.njk" %}
         

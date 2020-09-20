@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve & postcss styles/tailwind.css --o _tmp/style.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss styles/tailwind.css --o _site/style.css"
+    "start": "eleventy --serve & postcss styles/tailwind.css --o _includes/style.css --watch",
+    "build": "NODE_ENV=production postcss styles/tailwind.css --o _includes/style.css & ELEVENTY_PRODUCTION=true eleventy"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,8 @@
     "@11ty/eleventy": "^0.11.0",
     "@vercel/node": "^1.8.2",
     "airtable": "^0.10.0",
+    "clean-css": "^4.2.3",
+    "html-minifier": "^4.0.0",
     "node-fetch": "^2.6.1",
     "postcss-cli": "^7.1.2",
     "tailwindcss": "^1.8.10",
