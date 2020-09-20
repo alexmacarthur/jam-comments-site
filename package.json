@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve & postcss styles/tailwind.css --o _includes/style.css --watch",
+    "start": "NODE_ENV=development eleventy --serve & postcss styles/tailwind.css --o _includes/style.css --watch",
     "build": "NODE_ENV=production postcss styles/tailwind.css --o _includes/style.css & ELEVENTY_PRODUCTION=true eleventy"
   },
   "keywords": [],

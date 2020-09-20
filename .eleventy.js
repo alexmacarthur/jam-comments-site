@@ -3,7 +3,7 @@ const CleanCSS = require("clean-css");
 const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addWatchTarget("./_includes/style.css");
+  // eleventyConfig.addWatchTarget("./_includes/style.css");
 
   eleventyConfig.addPassthroughCopy("img");
 

@@ -34,11 +34,9 @@
         <nav class="flex justify-between p-5 flex-col items-center space-y-4 md:flex-row">
             <span class="text-xl">JamComments</span>
 
-            <ul class="flex space-x-3">
+            <ul class="space-x-3 hidden md:flex">
                 <li>
-                    <a 
-                        class="button"
-                        href="#interest">Get Notified When Live</a>
+                    {% include 'interest-button.njk' %}
                 </li>   
             </ul>
         </nav>

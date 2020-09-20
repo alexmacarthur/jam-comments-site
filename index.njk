@@ -4,11 +4,15 @@
 
 {% block content %}
     <div class="max-w-5xl mx-auto px-3">
-        <div class="text-center pt-12 mx-auto max-w-3xl">
+        <div class="text-center pt-8 md:pt-12 mx-auto max-w-3xl">
             <h1 class="font-bold text-4xl md:text-6xl leading-tight mb-4">Stupid-Simple Comments for the Jamstack</h1>
             <h2 class="text-xl md:text-2xl">
                 statically rendered, ad-free, nothing fancy.
             </h2>
+        </div>
+
+        <div class="block md:hidden text-center mt-12">
+            {% include 'interest-button.njk' %}
         </div>
 
         <div class="mb-10 mt-16 max-w-3xl mx-auto text-center">
@@ -40,7 +44,7 @@
                         placeholder="Email Address"
                         type="email" 
                         name="email" 
-                        class="border-gray-300 border-2 rounded-sm px-3 py-1 w-full sm:w-auto" />
+                        class="border-gray-300 border-2 rounded-sm px-3 py-1 w-full sm:w-auto mb-4 sm:mb-0" />
                     <button type="submit" class="button w-full sm:w-auto">
                         Submit
                     </button>
