@@ -22,7 +22,7 @@ const sendToAirtable = (emailAddress) => {
 }
 
 export default async (request: NowRequest, response: NowResponse) => {
-  const email: string = request?.body?.email || "";
+  const email: string = (request.body && request.body.email) || "";
 
   await sendToAirtable(email);
 
