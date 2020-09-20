@@ -5,6 +5,8 @@ const htmlmin = require("html-minifier");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./_includes/style.css");
 
+  eleventyConfig.addPassthroughCopy("img");
+
   eleventyConfig.addShortcode("version", function () {
       return String(Date.now());
   });
