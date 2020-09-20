@@ -5,6 +5,7 @@
             {% block title %}JamComments{% endblock %}
         </title>
         <meta charset="UTF-8"/>
+
         {% if description %}
             <meta name="description" content="{{description}}"/>
         {% endif %}
@@ -13,20 +14,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
         <style type="text/css">{{googleFontsStylesheet | safe}}</style>
         <link rel="stylesheet" href="/style.css?v={% version %}"/>
+
+        {% include "google-analytics.njk" %}
         
         {% block head %}{% endblock %}
     </head>
     <body>
-        <nav class="flex justify-between p-5">
+        <nav class="flex justify-between p-5 flex-col items-center space-y-4 md:flex-row">
             <span class="text-xl">JamComments</span>
 
             <ul class="flex space-x-3">
                 <li>
-                    <div class="text-center mb-12">
-                        <a 
-                            class="bg-gray-200 rounded-md py-2 px-4 text-gray-800 shadow-sm"
-                            href="https://app.jamcomments.com/login">Log In or Sign Up</a>
-                    </div>
+                    <a 
+                        class="button"
+                        href="#interest">Get Notified When Live</a>
                 </li>   
             </ul>
         </nav>
@@ -35,7 +36,7 @@
             {{ content | safe }}
         {% endblock %}
 
-        <footer class="text-center mt-10">
+        <footer class="text-center mt-16 p-5">
             <span>&copy; 2020 JamComments | Created by <a target="_blank" rel="noopener noreferrer" href="https://macarthur.me">Alex MacArthur<a>.
         </footer>
 
