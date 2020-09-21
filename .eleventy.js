@@ -11,6 +11,7 @@ module.exports = function (eleventyConfig) {
       return String(Date.now());
   });
 
+  // minify JavaScript
   eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
       code,
       callback
@@ -24,10 +25,12 @@ module.exports = function (eleventyConfig) {
       }
     });
 
+  // minify CSS
   eleventyConfig.addFilter("cssmin", function(code) {
     return new CleanCSS({}).minify(code).styles;
   });
 
+  // minify HTML
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if( outputPath.endsWith(".html") ) {
       let minified = htmlmin.minify(content, {
