@@ -27,3 +27,7 @@ a {
 .button:hover {
     @apply border-gray-300;
 }
+
+.content h1 {
+    @apply text-2xl;
+}
