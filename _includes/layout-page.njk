@@ -1,9 +1,12 @@
-{% extends "_includes/layout-main.njk" %}
+---
+layout: layout-main.njk
+---
 
-{% block content %}
-    <div class="max-w-2xl mx-auto content px-2">
-        <div class="grid grid-cols-1">
-            {{ content | safe }}
-        </div>
+<div class="max-w-2xl mx-auto content px-2">
+    <div class="grid grid-cols-1">
+      <h1>
+        {{ title }}
+      </h1>
+        {{ content | safe }}
     </div>
-{% endblock %}
+</div>

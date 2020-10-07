@@ -1,12 +1,13 @@
 const { minify } = require("terser");
 const CleanCSS = require("clean-css");
 const htmlmin = require("html-minifier");
+const mdIterator = require('markdown-it-for-inline');
+// const markdownItAnchor = require("markdown-it-anchor");
+const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./_includes/*");
-
   eleventyConfig.addPassthroughCopy("img");
-
   eleventyConfig.addShortcode("version", function () {
       return String(Date.now());
   });
@@ -44,4 +45,20 @@ module.exports = function (eleventyConfig) {
 
     return content;
   });
+
+  const markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true
+  }).use(mdIterator, 'url_new_win', 'link_open', function (tokens, idx) {
+    const [attrName, href] = tokens[idx].attrs.find(attr => attr[0] === 'href')
+
+    if (href && (!href.includes('jamcomments') && !href.includes('localhost')) && !href.startsWith('/') && !href.startsWith('#')) {
+      tokens[idx].attrPush([ 'target', '_blank' ])
+      tokens[idx].attrPush([ 'rel', 'noopener noreferrer' ])
+    }
+  });
+
+  eleventyConfig.setLibrary("md", markdownLibrary);
+
 };

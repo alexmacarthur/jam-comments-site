@@ -16,12 +16,16 @@
     "airtable": "^0.10.0",
     "clean-css": "^4.2.3",
     "html-minifier": "^4.0.0",
+    "markdown-it-anchor": "^6.0.0",
+    "markdown-it-for-inline": "^0.1.1",
     "node-fetch": "^2.6.1",
-    "postcss-cli": "^7.1.2",
+    "postcss": "^8.1.1",
+    "postcss-cli": "^8.0.0",
     "tailwindcss": "^1.8.10",
     "terser": "^5.3.2"
   },
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "postcss-nested": "^5.0.1"
   }
 }

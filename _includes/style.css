@@ -18795,7 +18795,7 @@ video {
 }
 
 * {
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 html {
@@ -18837,8 +18837,25 @@ a {
 }
 
 .content h1 {
-  font-size: 1.5rem;
-}
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+.content p {
+    margin-bottom: 0.75rem;
+  }
+
+.content a {
+    font-weight: 600;
+  }
+
+.content h2,
+  .content h3,
+  .content h4,
+  .content h5 {
+    font-size: 1.5rem;
+    margin-top: 0.75rem;
+  }
 
 @media (min-width: 640px) {
   .sm\:container {
