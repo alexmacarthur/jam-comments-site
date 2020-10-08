@@ -1,12 +1,42 @@
 ---
 layout: layout-main.njk
+sidebar_items:
+  -
+    title: Getting Started
+    url: /docs
+  -
+    title: Integrations
+    url: /docs/integrations
+    sub_items:
+      -
+        title: Gatsby
+        url: /docs/integrations/gatsby
+      -
+        title: Eleventy
+        url: /docs/integrations/eleventy
+  -
+    title: Integrations
+    url: /docs/integrations
+  -
+    title: Integrations
+    url: /docs/integrations
+  -
+    title: Integrations
+    url: /docs/integrations
 ---
 
-<div class="max-w-2xl mx-auto content px-2">
-    <div class="grid grid-cols-1">
+<div class="grid" style="grid-template-columns: 200px auto;">
+  <aside class="p-5">
+    {% include "side-nav.njk" %}
+  </aside>
+
+  <div class="overflow-auto">
+    <main class="content px-2">
       <h1>
         {{ title }}
       </h1>
-        {{ content | safe }}
-    </div>
+
+      {{ content | safe }}
+    </main>
+  </div>
 </div>

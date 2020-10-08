@@ -1,0 +1,20 @@
+<ul class="flex flex-col space-y-4">
+  {% for item in sidebar_items %}
+    <li>
+      <a href="{{ item.url }}">
+        {{ item.title }}
+      </a>
+        {% if item.sub_items %}
+        <ul class="pl-3 mt-2">
+          {% for sub_item in item.sub_items %}
+            <li>
+              <a href="{{ sub_item.url }}">
+                {{ sub_item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -5,7 +5,19 @@
 @tailwind utilities;
 
 * {
-  font-family: "Heebo", sans-serif;
+  &:not(code[class^=language]):not(code[class^=language] *) {
+    font-family: "Heebo", sans-serif;
+  }
+
+  font-weight: 300;
+}
+
+code:not([class^=language]) {
+  @apply bg-gray-200 py-0 px-1 rounded-sm;
+}
+
+pre[class^=language] {
+  @apply my-4 overflow-auto;
 }
 
 html {
@@ -38,13 +50,27 @@ a {
   }
 
   a {
-    @apply font-semibold;
+    @apply font-medium;
   }
 
   h2,
   h3,
   h4,
   h5 {
-    @apply text-2xl mt-3;
+    @apply text-2xl mt-5 mb-2;
   }
+
+  h3 {
+    @apply text-xl;
+  }
+}
+
+code {
+  * {
+    font-size: 1rem !important;
+  }
+}
+
+.sidebar {
+  width: 200px;
 }
