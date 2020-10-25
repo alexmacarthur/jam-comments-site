@@ -1,8 +1,9 @@
+require('dotenv').config();
+
 const { minify } = require("terser");
 const CleanCSS = require("clean-css");
 const htmlmin = require("html-minifier");
 const mdIterator = require('markdown-it-for-inline');
-// const markdownItAnchor = require("markdown-it-anchor");
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
