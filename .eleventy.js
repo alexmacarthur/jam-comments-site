@@ -9,8 +9,8 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
-  eleventyConfig.addWatchTarget("./_includes/*");
-  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addWatchTarget("assets");
+  eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addShortcode("version", function () {
       return String(Date.now());
   });

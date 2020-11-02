@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"NODE_ENV=development eleventy --serve\" \"NODE_ENV=development postcss styles/tailwind.css --o _includes/style.css --watch\"",
-    "build": "rm -rf _site && NODE_ENV=production postcss styles/tailwind.css --o _includes/style.css && ELEVENTY_PRODUCTION=true eleventy"
+    "start": "concurrently \"NODE_ENV=development eleventy --serve\" \"NODE_ENV=development postcss assets/styles/tailwind.css --o assets/dist/styles.css --watch\"",
+    "build": "rm -rf _site && NODE_ENV=production postcss assets/styles/tailwind.css --o assets/dist/styles.css && ELEVENTY_PRODUCTION=true eleventy"
   },
   "keywords": [],
   "author": "",

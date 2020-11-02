@@ -5,6 +5,9 @@ title: Gatsby Integration
 
 These instructions assume you've already created a JamComments account as well as a site. If you haven't, learn more about that process on the [Getting Started](/docs/getting-started) page.
 
+## Prerequisites
+In order to use this plugin, you'll need a JamComments account, where you'll also need to have created a site and generated an API key.
+
 ## Installation & Configuration
 
 Install the plugin by running `npm install gatsby-plugin-jam-comments` or `yarn add gatsby-plugin-jam-comments`. After doing so, configure it by adding the following to your `gatsby-node.js`.

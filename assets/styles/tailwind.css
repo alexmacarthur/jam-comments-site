@@ -1,7 +1,5 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 * {
@@ -73,4 +71,9 @@ code {
 
 .sidebar {
   width: 200px;
+}
+
+.content-layout {
+  @apply grid;
+  grid-template-columns: 200px auto;
 }

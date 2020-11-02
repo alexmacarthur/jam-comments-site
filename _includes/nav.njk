@@ -2,8 +2,10 @@
     <a href="/" class="text-xl font-normal">JamComments</a>
 
     <ul class="space-x-3 hidden md:flex">
+      {% for item in nav_items %}
         <li>
-            {% include 'interest-button.njk' %}
+          {{ item.title }}
         </li>
+      {% endfor %}
     </ul>
 </nav>
