@@ -7,7 +7,14 @@ module.exports = {
       }
     },
     theme: {
-      extend: {},
+      extend: {
+        maxWidth: {
+          wide: "1300px"
+        },
+        borderRadius: {
+          big: "5rem"
+        }
+      },
     },
     variants: {},
     plugins: [],

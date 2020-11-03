@@ -31,11 +31,19 @@ a {
 }
 
 .button {
-  @apply bg-gray-200 rounded-sm py-1 px-4 text-gray-800 shadow-sm border-gray-200 border-2;
+  @apply bg-gray-200 rounded-md py-3 px-4 text-gray-800 shadow-sm border-gray-200 border-2;
 }
 
 .button:hover {
   @apply border-gray-300;
+}
+
+.button--inverse {
+  @apply bg-white border-gray-400;
+}
+
+.bubble-slice {
+  @apply flex justify-center bg-gray-100 rounded-tl-big rounded-br-big py-6 mx-auto max-w-5xl;
 }
 
 .content {

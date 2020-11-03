@@ -7,48 +7,40 @@ nav_items:
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>
-            {% block title %}JamComments{% endblock %}
-        </title>
-        <meta charset="UTF-8"/>
+  <head>
+    <title>
+      {{ title }}
+    </title>
+    <meta charset="UTF-8"/>
 
-        {% if description %}
-          <meta name="description" content="{{ description }}"/>
-        {% endif %}
+    {% if description %}
+      <meta name="description" content="{{ description }}"/>
+    {% endif %}
 
-        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-        <meta property="og:title" content="JamComments: Comments for the Jamstack" />
-        <meta property="og:image" content="https://jamcomments.com/img/open-graph.jpg" />
-        <meta property="og:description" content="Stupid-simple comments for Jamstack sites.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <meta property="og:title" content="JamComments: Comments for the Jamstack" />
+    <meta property="og:image" content="https://jamcomments.com/img/open-graph.jpg" />
+    <meta property="og:description" content="Stupid-simple comments for Jamstack sites.">
 
-        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
-        <link href="{{ '/assets/dist/styles.css' | url }}" rel="stylesheet">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="{{ '/assets/dist/styles.css' | url }}" rel="stylesheet">
 
-        <style type="text/css">{{googleFontsStylesheet | safe}}</style>
+    <style type="text/css">{{googleFontsStylesheet | safe}}</style>
 
-        {% include "google-analytics.njk" %}
+    {% include "google-analytics.njk" %}
 
-        {% block head %}{% endblock %}
-    </head>
-    <body>
-        {% include 'nav.njk' %}
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% include 'nav.njk' %}
 
-        {% block content %}
-            {{ content | safe }}
-        {% endblock %}
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
 
-        <footer class="text-center mt-16 p-5">
-            <span>&copy; 2020 JamComments | Created by <a target="_blank" rel="noopener noreferrer" href="https://macarthur.me">Alex MacArthur<a>.
-        </footer>
-
-        {% set js %}
-            {% include "scripts.js" %}
-        {% endset %}
-
-        <script>
-            {{ js | jsmin | safe }}
-        </script>
-    </body>
+    <footer class="text-center mt-16 p-5">
+      <span>&copy; 2020 JamComments | Created by <a target="_blank" rel="noopener noreferrer" href="https://macarthur.me">Alex MacArthur<a>.
+    </footer>
+  </body>
 </html>

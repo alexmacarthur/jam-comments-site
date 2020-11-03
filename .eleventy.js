@@ -15,6 +15,10 @@ module.exports = function (eleventyConfig) {
       return String(Date.now());
   });
 
+  eleventyConfig.addFilter("idify", function(value) {
+    return value.replace(/\s/g, '').toLowerCase();
+  });
+
   // minify JavaScript
   eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
       code,

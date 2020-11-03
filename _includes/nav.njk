@@ -1,11 +1,13 @@
 <nav class="flex justify-between p-5 flex-col items-center space-y-4 md:flex-row">
-    <a href="/" class="text-xl font-normal">JamComments</a>
+  <a href="/" class="text-xl font-normal">JamComments</a>
 
-    <ul class="space-x-3 hidden md:flex">
-      {% for item in nav_items %}
-        <li>
+  <ul class="space-x-3 hidden md:flex">
+    {% for item in nav_items %}
+      <li>
+        <a href="{{ item.url }}">
           {{ item.title }}
-        </li>
-      {% endfor %}
-    </ul>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </nav>

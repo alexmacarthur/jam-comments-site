@@ -1,0 +1,23 @@
+<div class="max-w-5xl mx-auto py-16 px-12">
+  <ul class="grid grid-cols-{{ pricing.length }} mb-12 gap-12">
+    {% for price in pricing %}
+      <li class="text-center">
+        <div>
+          <h3 class="text-4xl font-bold">
+            {{ price.title }}
+            <span>
+              {{ price.price }}
+            <span>
+          </h3>
+          <span>
+            {{ price.description }}
+          </span>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <span class="text-center block text-sm text-gray-600">
+    Oh, and there's a 3-month money-back guarantee, just in case you encounter the impossible and end up hating it.
+  </span>
+</div>
