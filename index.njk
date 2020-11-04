@@ -4,8 +4,8 @@ title: "JamComments: Stupid-Simple, Static Comments"
 ---
 
 {% macro transitionArrow (text, icon, id) %}
-  <div class="flex justify-center bg-gray-100 rounded-tl-big rounded-br-big py-6 mx-auto max-w-5xl">
-    <span class="w-32 h-32">
+  <div class="flex justify-center bg-gray-100 rounded-tl-big rounded-br-big p-6 mx-auto max-w-5xl">
+    <span class="w-20 md:w-32 h-20 md:h-32">
       {% include icon %}
     </span>
     <a href="#{{id}}" class="text-2xl flex items-center font-thin pl-3 outline-none" id="{{id}}">
@@ -14,14 +14,14 @@ title: "JamComments: Stupid-Simple, Static Comments"
   </div>
 {% endmacro %}
 
-<div class="px-6">
+<div class="px-1 md:px-6">
   <div class="max-w-5xl mx-auto px-3">
 
     <div class="mb-32 mt-20">
       {% include 'home/hero.njk' %}
     </div>
 
-    <div class="block md:hidden text-center mt-12">
+    <div class="block md:hidden text-center -mt-20 mb-12">
       {% include 'interest-button.njk' %}
     </div>
 
