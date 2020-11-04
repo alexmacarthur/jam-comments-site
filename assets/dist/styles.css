@@ -19310,24 +19310,46 @@ a {
   border-color: rgba(203, 213, 224, var(--border-opacity));
 }
 
-.bubble-slice {
-  display: flex;
-  justify-content: center;
-  --bg-opacity: 1;
-  background-color: #f7fafc;
-  background-color: rgba(247, 250, 252, var(--bg-opacity));
-  border-top-left-radius: 5rem;
-  border-bottom-right-radius: 5rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 64rem;
+.slice {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
+
+@media (min-width: 768px) {
+
+.slice {
+    margin-top: 4rem;
+
+    margin-bottom: 4rem
+}
+  }
+
+.hoverable-link {
+  position: relative;
+}
+
+.hoverable-link:before {
+    position: absolute;
+    display: block;
+    width: 0;
+    border-radius: 0.375rem;
+    transition: all .05s ease-in-out;
+    content: "";
+    height: 5px;
+    width: 100%;
+    opacity: 0;
+    bottom: 0;
+    background: #000;
+  }
+
+.hoverable-link:hover:before {
+      opacity: 1;
+    }
 
 .content h1 {
     font-size: 2.25rem;
     margin-bottom: 0.75rem;
+    font-weight: 700;
   }
 
 .content p {
@@ -19345,6 +19367,7 @@ a {
     font-size: 1.5rem;
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
+    font-weight: 200;
   }
 
 .content h3 {
@@ -19354,6 +19377,14 @@ a {
 code * {
     font-size: 1rem !important;
   }
+
+.menu-open {
+  display: flex;
+}
+
+.body-menu-open {
+  overflow: hidden;
+}
 
 .sidebar {
   width: 200px;

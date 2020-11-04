@@ -1,13 +1,73 @@
-<nav class="flex justify-between p-5 flex-col items-center space-y-4 md:flex-row">
-  <a href="/" class="text-xl font-normal">JamComments</a>
+<nav class="flex justify-between p-5 items-center space-y-0 lg:space-y-4 md:flex-row">
+  <a
+    href="/"
+    class="
+      text-base
+      lg:text-2xl
+      font-normal
+      lg:font-bold
+      border-black
+      text-black
+      border-2
+      lg:border-4
+      rounded-tl-big
+      rounded-br-big
+      block
+      py-3
+      pb-4
+      px-10
+      hover:bg-black
+      hover:text-white
+      "
+  >
+    JamComments
+  </a>
 
-  <ul class="space-x-3 hidden md:flex">
-    {% for item in nav_items %}
-      <li>
-        <a href="{{ item.url }}">
-          {{ item.title }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+  <button class="md:hidden" id="navOpen">
+    Menu
+  </button>
+
+  <div
+    class="
+      hidden
+      md:flex
+      items-center
+      justify-center
+      fixed
+      w-full
+      md:w-auto
+      h-full
+      md:h-auto
+      top-0
+      md:t-auto
+      left-0
+      md:left-auto
+      md:relative
+      bg-white
+      md:bg-none
+    "
+    id="nav"
+  >
+
+    <span
+      id="navClose"
+      class="block md:hidden w-20 h-20 cursor-pointer absolute"
+      style="top: 1rem; right: 1rem;"
+    >
+      {% include 'svg/times.svg' %}
+    </span>
+
+    <ul class="space-y-5 md:space-y-0 md:space-x-5 md:flex">
+      {% for item in nav_items %}
+        <li>
+          <a
+            href="{{ item.url }}"
+            class="font-thin hoverable-link text-2xl md:text-xl pb-3 md:pb-5"
+          >
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </nav>

@@ -42,13 +42,38 @@ a {
   @apply bg-white border-gray-400;
 }
 
-.bubble-slice {
-  @apply flex justify-center bg-gray-100 rounded-tl-big rounded-br-big py-6 mx-auto max-w-5xl;
+.slice {
+  @apply my-12;
+
+  @screen md {
+    @apply my-16;
+  }
+}
+
+.hoverable-link {
+  position: relative;
+
+  &:before {
+    @apply absolute block w-0 rounded-md;
+    transition: all .05s ease-in-out;
+    content: "";
+    height: 5px;
+    width: 100%;
+    opacity: 0;
+    bottom: 0;
+    background: theme('colors.black');
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
 }
 
 .content {
   h1 {
-    @apply text-4xl mb-3;
+    @apply text-4xl mb-3 font-bold;
   }
 
   p {
@@ -63,7 +88,7 @@ a {
   h3,
   h4,
   h5 {
-    @apply text-2xl mt-5 mb-2;
+    @apply text-2xl mt-5 mb-2 font-thin;
   }
 
   h3 {
@@ -75,6 +100,14 @@ code {
   * {
     font-size: 1rem !important;
   }
+}
+
+.menu-open {
+  @apply flex;
+}
+
+.body-menu-open {
+  @apply overflow-hidden;
 }
 
 .sidebar {

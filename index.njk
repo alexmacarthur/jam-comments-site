@@ -4,11 +4,11 @@ title: "JamComments: Stupid-Simple, Static Comments"
 ---
 
 {% macro transitionArrow (text, icon, id) %}
-  <div class="bubble-slice">
+  <div class="flex justify-center bg-gray-100 rounded-tl-big rounded-br-big py-6 mx-auto max-w-5xl">
     <span class="w-32 h-32">
       {% include icon %}
     </span>
-    <a href="#{{id}}" class="text-2xl flex items-center font-thin pl-3" id="{{id}}">
+    <a href="#{{id}}" class="text-2xl flex items-center font-thin pl-3 outline-none" id="{{id}}">
       {{ text }}
     </span>
   </div>
@@ -16,58 +16,46 @@ title: "JamComments: Stupid-Simple, Static Comments"
 
 <div class="px-6">
   <div class="max-w-5xl mx-auto px-3">
-    <div class="text-center pt-8 md:pt-12 mx-auto max-w-3xl">
-      <h1 class="font-bold text-4xl md:text-6xl leading-tight mb-4">Stupid-Simple Comments for the Jamstack</h1>
-      <h2 class="text-xl md:text-2xl">
-          statically rendered, ad-free, nothing fancy.
-      </h2>
+
+    <div class="mb-32 mt-20">
+      {% include 'home/hero.njk' %}
     </div>
 
     <div class="block md:hidden text-center mt-12">
       {% include 'interest-button.njk' %}
     </div>
 
-  <div class="mb-10 mt-16 max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-3">Your Jamstack blog isn't complicated. Comments shouldn't be either.</h2>
-      <p class="text-lg">
-          Today, options to collect &amp; display comments on your static site require either manually piecing together a hodge-podge of technologies, or selling yourself (and your readers) to a behemoth, soulless, third-party service. JamComments doesn't try to be anything other than a stupid-simple comment service that's easy to set up and doesn't leave you feeling guilty after doing so.
-      </p>
+    <div class="slice">
+      {% include 'home/intro.njk' %}
     </div>
 
-    <div class="my-12 md:my-16">
+    <div class="slice">
       {{ transitionArrow("The advantages are straightforward.", "svg/bulb.svg", "perks")  }}
     </div>
 
-    <div class="max-w-xl mx-auto">
+    <div class="slice" id="highlights">
       {% include 'home/highlights.njk' %}
     </div>
 
-    <div class="my-12 md:my-16">
+    <div class="slice">
       {{ transitionArrow("And so is the pricing.", "svg/dollar.svg", "pricing")  }}
     </div>
 
+    <div class="slice" id="pricing">
+      {% include 'home/pricing.njk' %}
+    </div>
+
+    <div class="slice">
+      {{ transitionArrow("So, choose your integration.", "svg/server.svg", "integrations")  }}
+    </div>
+
+    <div class="slice" id="integrations">
+      {% include 'home/integrations.njk' %}
+    </div>
+
+    <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
+
+    {% include 'home/final-cta.njk' %}
+
   </div>
-
-  {% include 'home/pricing.njk' %}
-
-  <div class="my-12 md:my-16">
-    {{ transitionArrow("So, choose your integration.", "svg/server.svg", "integrations")  }}
-  </div>
-
-  {% include 'home/integrations.njk' %}
-
-  <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
-
-  <div class="text-center mt-20">
-    <span class="text-3xl font-thin mb-10 block">
-      And that's the pitch. Now, sign up:
-    </span>
-
-    <a
-      class="button button--inverse"
-      href="{{ site.signUpUrl }}">
-        Sign Up
-    </a>
-  </div>
-
 </div>
