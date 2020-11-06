@@ -117,7 +117,105 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"../../node_modules/quicklink/dist/quicklink.mjs":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.listen = i;
+exports.prefetch = c;
+
+function n(n) {
+  return new Promise(function (e, t, r) {
+    (r = new XMLHttpRequest()).open("GET", n, r.withCredentials = !0), r.onload = function () {
+      200 === r.status ? e() : t();
+    }, r.send();
+  });
+}
+
+var e,
+    t = (e = document.createElement("link")).relList && e.relList.supports && e.relList.supports("prefetch") ? function (n) {
+  return new Promise(function (e, t, r) {
+    (r = document.createElement("link")).rel = "prefetch", r.href = n, r.onload = e, r.onerror = t, document.head.appendChild(r);
+  });
+} : n,
+    r = window.requestIdleCallback || function (n) {
+  var e = Date.now();
+  return setTimeout(function () {
+    n({
+      didTimeout: !1,
+      timeRemaining: function () {
+        return Math.max(0, 50 - (Date.now() - e));
+      }
+    });
+  }, 1);
+},
+    o = new Set();
+
+function i(n) {
+  if (n || (n = {}), window.IntersectionObserver) {
+    var e = function (n) {
+      n = n || 1;
+      var e = [],
+          t = 0;
+
+      function r() {
+        t < n && e.length > 0 && (e.shift()(), t++);
+      }
+
+      return [function (n) {
+        e.push(n) > 1 || r();
+      }, function () {
+        t--, r();
+      }];
+    }(n.throttle || 1 / 0),
+        t = e[0],
+        i = e[1],
+        u = n.limit || 1 / 0,
+        a = n.origins || [location.hostname],
+        f = n.ignores || [],
+        s = n.timeoutFn || r,
+        l = new IntersectionObserver(function (e) {
+      e.forEach(function (e) {
+        e.isIntersecting && (l.unobserve(e = e.target), o.size < u && t(function () {
+          c(e.href, n.priority).then(i).catch(function (e) {
+            i(), n.onError && n.onError(e);
+          });
+        }));
+      });
+    });
+
+    return s(function () {
+      (n.el || document).querySelectorAll("a").forEach(function (n) {
+        a.length && !a.includes(n.hostname) || function n(e, t) {
+          return Array.isArray(t) ? t.some(function (t) {
+            return n(e, t);
+          }) : (t.test || t).call(t, e.href, e);
+        }(n, f) || l.observe(n);
+      });
+    }, {
+      timeout: n.timeout || 2e3
+    }), function () {
+      o.clear(), l.disconnect();
+    };
+  }
+}
+
+function c(e, r, i) {
+  if (!(i = navigator.connection) || !i.saveData && !/2g/.test(i.effectiveType)) return Promise.all([].concat(e).map(function (e) {
+    if (!o.has(e)) return o.add(e), (r ? function (e) {
+      return window.fetch ? fetch(e, {
+        credentials: "include"
+      }) : n(e);
+    } : t)(new URL(e, location.href).toString());
+  }));
+}
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _quicklink = require("quicklink");
+
 var MenuController = function MenuController() {
   var nav = document.getElementById('nav');
   var navOpen = document.getElementById('navOpen');
@@ -139,7 +237,8 @@ var MenuController = function MenuController() {
 };
 
 MenuController();
-},{}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _quicklink.listen)();
+},{"quicklink":"../../node_modules/quicklink/dist/quicklink.mjs"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -167,7 +266,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59402" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59591" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

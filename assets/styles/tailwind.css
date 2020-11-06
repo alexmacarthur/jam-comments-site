@@ -15,7 +15,7 @@ code:not([class^=language]) {
 }
 
 pre[class^=language] {
-  @apply my-4 overflow-auto;
+  @apply my-6 overflow-auto;
 }
 
 html {
@@ -50,6 +50,29 @@ a {
   }
 }
 
+.side-nav-link {
+  @apply font-light text-base text-gray-600 inline-block w-full relative;
+
+  &:hover {
+    @apply text-gray-800;
+  }
+}
+
+.is-on-page {
+  @apply text-gray-700;
+
+  &:before {
+    @apply absolute bg-indigo-100 rounded-sm;
+    width: calc(100% + 1rem);
+    height: calc(100% + .5rem);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    z-index: -1;
+  }
+}
+
 .hoverable-link {
   position: relative;
 
@@ -61,7 +84,7 @@ a {
     width: 100%;
     opacity: 0;
     bottom: 0;
-    background: theme('colors.black');
+    background: theme('colors.indigo.100');
   }
 
   &:hover {
@@ -88,11 +111,15 @@ a {
   h3,
   h4,
   h5 {
-    @apply text-2xl mt-5 mb-2 font-thin;
+    @apply text-2xl mt-5 mb-3 font-normal;
   }
 
   h3 {
     @apply text-xl;
+  }
+
+  p, span, li, li {
+    @apply text-gray-700 leading-normal;
   }
 }
 

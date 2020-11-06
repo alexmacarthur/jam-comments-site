@@ -1,3 +1,5 @@
+import { listen as quickLinkListen } from "quicklink";
+
 const MenuController = () => {
   const nav = document.getElementById('nav');
   const navOpen = document.getElementById('navOpen');
@@ -20,3 +22,5 @@ const MenuController = () => {
 }
 
 MenuController();
+
+quickLinkListen();
