@@ -5,9 +5,6 @@ sidebar_items:
     title: General
     sub_items:
       -
-        title: Welcome
-        url: /docs
-      -
         title: Getting Started
         url: /docs/getting-started
   -
@@ -19,6 +16,9 @@ sidebar_items:
       -
         title: Eleventy
         url: /docs/integrations/eleventy
+      -
+        title: Next.js
+        url: /docs/integrations/next
 ---
 
 <div class="content-layout">
@@ -32,7 +32,9 @@ sidebar_items:
         {{ title }}
       </h1>
 
-      {{ content | safe }}
+      <div class="prose max-w-3xl">
+        {{ content | safe }}
+      </div>
     </main>
   </div>
 </div>

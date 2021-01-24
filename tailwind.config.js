@@ -7,15 +7,33 @@ module.exports = {
       }
     },
     theme: {
+      fontFamily: {
+        sans: ["Heebo", "sans-serif"]
+      },
       extend: {
         maxWidth: {
           wide: "1300px"
         },
         borderRadius: {
           big: "5rem"
-        }
+        },
+        typography: theme => ({
+          DEFAULT: {
+            css: {
+              color: theme('colors.gray.700'),
+              code: {
+                fontWeight: 'inherit'
+              },
+              'h1, h2, h3, h4, h5, h6': {
+                color: theme('colors.gray.800')
+              }
+            }
+          }
+        })
       },
     },
     variants: {},
-    plugins: [],
+    plugins: [
+      require('@tailwindcss/typography')
+    ]
   }
