@@ -26,6 +26,12 @@ module.exports = {
               },
               'h1, h2, h3, h4, h5, h6': {
                 color: theme('colors.gray.800')
+              },
+              'ul > li, ol > li': {
+                paddingLeft: theme('padding.2')
+              },
+              'ul, ol': {
+                marginLeft: theme('margin.5')
               }
             }
           }

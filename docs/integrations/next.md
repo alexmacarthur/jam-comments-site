@@ -62,3 +62,7 @@ export async function getStaticProps() {
   };
 }
 ```
+
+## Contributions
+
+The source for this plugin is open to contributions. If you have a bug fix or idea for improvement, leave a pull request or issue in the [GitHub repository](https://github.com/alexmacarthur/jam-comments-javascript/tree/master/packages/next).
