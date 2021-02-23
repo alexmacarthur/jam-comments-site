@@ -51,8 +51,13 @@
       {% for item in nav_items %}
         <li>
           <a
-            href="{{ item.url }}"
-            class="font-thin hoverable-link text-2xl md:text-xl pb-3 md:pb-5"
+            {% if item.url === "SIGNUP" %}
+              href="{{ site.signUpUrl }}"
+            {% else %}
+              href="{{ item.url }}"
+            {% endif %}
+
+            class="font-thin hoverable-link text-2xl md:text-lg pb-3 md:pb-3 text-gray-600 hover:text-gray-900"
           >
             {{ item.title }}
           </a>

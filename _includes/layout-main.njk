@@ -2,7 +2,7 @@
 nav_items:
   -
     title: Documentation
-    url: /docs
+    url: /docs/getting-started
   -
     title: Pricing
     url: /#pricing
@@ -12,6 +12,9 @@ nav_items:
   -
     title: Highlights
     url: /#highlights
+  -
+    title: Sign Up or Log In
+    url: SIGNUP
 ---
 
 <!DOCTYPE html>
@@ -49,8 +52,23 @@ nav_items:
     {% endblock %}
 
     <footer class="text-center mt-16 p-5">
-      <hr class="border-t-2 w-48 mx-auto mb-4" />
-      <span>&copy; 2020 JamComments | Created by <a target="_blank" rel="noopener noreferrer" href="https://macarthur.me">Alex MacArthur<a>.
+      <hr class="border-t-2 w-64 mx-auto mb-4" />
+
+      <div class="flex flex-col-reverse lg:flex-row lg:justify-between">
+        <span>
+          &copy; 2020 JamComments | Created by <a class="font-light" target="_blank" rel="noopener noreferrer" href="https://macarthur.me">Alex MacArthur<a>
+        </span>
+
+        <ul class="flex space-x-4 justify-center mb-4 lg:mb-0">
+          <li>
+            <a href="https://macarthur.me/contact" class="font-light">Contact Me</a>
+          </li>
+          <li>
+            <a href="/privacy-policy" class="font-light">Privacy Policy</a>
+          </li>
+        </ul>
+
+      </div>
     </footer>
 
     <script src="{{ '/assets/dist/index.js' | url }}"></script>
