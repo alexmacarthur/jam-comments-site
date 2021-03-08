@@ -30,9 +30,14 @@ module.exports = function(eleventyConfig) {
 
 ## Displaying Comments
 
-Embed the following Nunjucks shortcode in the template that renders individual posts or pages.
+Embed the `jamcomments` Nunjucks shortcode in the template that renders individual posts or pages.
 
-```
+```html
+<h1>My Page Title</h1>
+
+<p>Here's some page content.</p>
+
+<!-- Form and comments will render here! -->
 {{ "{% jamcomments %}" | escape }}
 ```
 
