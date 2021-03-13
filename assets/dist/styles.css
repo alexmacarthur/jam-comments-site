@@ -20352,8 +20352,8 @@ h1 {
   --text-opacity: 1;
   color: #718096;
   color: rgba(113, 128, 150, var(--text-opacity));
-  display: inline-block;
   width: 100%;
+  display: inline-block;
   position: relative;
 }
 
@@ -20375,8 +20375,8 @@ h1 {
     background-color: #ebf4ff;
     background-color: rgba(235, 244, 255, var(--bg-opacity));
     border-radius: 0.125rem;
-    width: calc(100% + 1rem);
-    height: calc(100% + .5rem);
+    width: calc(100% + 1.25rem);
+    height: calc(100% + .75rem);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -20496,6 +20496,8 @@ code * {
 
 .content-layout {
   display: grid;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
   grid-template-columns: 225px auto;
 }
 

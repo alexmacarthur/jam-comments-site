@@ -3,16 +3,26 @@ layout: layout-page.njk
 title: Getting Started
 ---
 
-Before installing JamComments on your site, you'll need to do the following:
+In order to get up & running with JamComments, you'll need to do the following:
 
-### 1. Create an Account
+## Creating an Account
 
-To do so, use the button in the navigation above, or navigate to the [JamComments dashboard](http://app.jamcomments.com/).
+To do so, use the button in the navigation above, or navigate to the [JamComments application](http://app.jamcomments.com/). Signing up for an account is **free**, but you'll be limited one site and be able to collect a maximum of 10 comments. If you'd like to collect comments beyond that, you'll need to sign up for a paid account.
 
-### 2. Create a Site
+Authentication is managed by [Auth0](https://auth0.com/) and subscriptions are managed by [Stripe](https://stripe.com). I don't store any personally identifiable within the application.
+
+## Creating a Site
 
 After logging into the [dashboard](https://app.jamcomments.com), head to the ["Sites" page](https://app.jamcomments.com/sites) and create a new one. Free plans can create one site, but if you need more, consider upgrading to premium plan.
 
-### 3. Generate an API Key
+## Adding a Webhook
 
-Your site will need this in order to create new comments after they're submitted. To generate one, navigate to your [Account Settings](https://app.jamcomments.com/settings/account) and scroll down to the "API Key" section.
+If you'd like to trigger a new build for your site after a new comment has been collected and approved, you can do so on your site's settings page, found at `Settings > Sites > Your Site Name > Webhooks`. Most of the popular Jamstack hosts provide this feature out-of-the-box, including [Vercel](https://vercel.com/docs/more/deploy-hooks) and [Netlify](https://docs.netlify.com/configure-builds/build-hooks/).
+
+## Enabling Auto-Approval (optional)
+
+By default, new comments will not be automatically approved and published. If you'd like to do so, you can toggle on auto-approval by navigating to your site's settings page at `Settings > Sites > Your Site Name > Webhooks`.
+
+## Generating an API Key
+
+Your site will need this in order to create new comments after they're submitted. To generate a key, navigate to your [Account Settings](https://app.jamcomments.com/account) and scroll down to the "API Key" section. There, you'll be able to generate a fresh key or replace an existing one.

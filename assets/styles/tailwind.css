@@ -81,7 +81,7 @@ h1 {
 }
 
 .side-nav-link {
-  @apply font-light text-base text-gray-600 inline-block w-full relative;
+  @apply font-light text-base text-gray-600 w-full inline-block relative;
 
   &:hover {
     @apply text-gray-800;
@@ -93,8 +93,8 @@ h1 {
 
   &:before {
     @apply absolute bg-indigo-100 rounded-sm;
-    width: calc(100% + 1rem);
-    height: calc(100% + .5rem);
+    width: calc(100% + 1.25rem);
+    height: calc(100% + .75rem);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -204,6 +204,6 @@ code {
 }
 
 .content-layout {
-  @apply grid;
+  @apply grid gap-6;
   grid-template-columns: 225px auto;
 }

@@ -23,6 +23,8 @@ npm install @jam-comments/next
 
 ## Usage
 
+In your `getStaticProps` hook, retrieve the comments for a given post by using the `fetchByPath` method, and then passing your API key, domain, and comments to your rendered page, in which they should be passed to the `<JamComments />` component.
+
 ```javascript
 // [slug].js
 
@@ -42,16 +44,18 @@ export default function Post({ content, comments, jamCommentsDomain, jamComments
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
   const content = await getContentFromSomewhere();
   const { fetchByPath } = require("@jam-comments/next");
 
+  // Retrieve all comments already made on this post.
   const comments = await fetchByPath({
     domain: process.env.JAM_COMMENTS_DOMAIN,
     apiKey: process.env.JAM_COMMENTS_API_KEY,
-    path: "/posts/when-dom-updates-appear-to-be-asynchronous"
+    path: `/posts/${params.slug}`
   });
 
+  // Pass domain, API key, and comments to `props` for use client-side.
   return {
     props: {
       jamCommentsApiKey: process.env.JAM_COMMENTS_API_KEY,
