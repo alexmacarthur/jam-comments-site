@@ -76,7 +76,8 @@ h1 {
   @apply my-12;
 
   @screen md {
-    @apply my-16;
+    margin-bottom: theme('margin.16');
+    margin-top: theme('margin.16');
   }
 }
 
