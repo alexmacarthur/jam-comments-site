@@ -25,12 +25,22 @@ sidebar_items:
 ---
 
 <div class="content-layout">
-  <aside class="p-5 pr-0">
+
+  <div class="md:hidden relative cursor-pointer bg-gray-100 w-screen left-[50%] transform translate-x-[-50%] text-center">
+    <button class="w-full px-4 py-4 flex items-center" id="documentationNavigation">
+      <i class="block w-8 h-8 mr-2">
+        {% include "svg/menu.svg" %}
+      </i>
+      Documentation Navigation
+    </button>
+  </div>
+
+  <aside class="sidebar px-4 md:px-0 hidden md:block" id="sidebar">
     {% include "side-nav.njk" %}
   </aside>
 
   <div class="overflow-auto">
-    <main class="content px-2 max-w-4xl mx-auto">
+    <main class="content">
       <h1>
         {{ title }}
       </h1>

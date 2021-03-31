@@ -15,12 +15,6 @@ code:not([class^=language]) {
   @apply bg-gray-200 py-0 px-1 rounded-sm;
 }
 
-.content {
-  ul {
-    list-style: disc;
-  }
-}
-
 .warning {
   @apply bg-yellow-400 rounded-md py-2 px-4 relative text-gray-700 my-6;
   padding-left: theme('width.16');
@@ -155,11 +149,28 @@ table td + td:before {
   background: theme('colors.gray.300');
 }
 
+.sidebar {
+  @apply pt-10;
+  width: 200px;
+}
+
+.content-layout {
+  @apply grid md:gap-12 grid-cols-1 px-4;
+
+  @screen md {
+    grid-template-columns: 225px auto;
+  }
+}
+
 .content {
-  @apply text-base;
+  @apply max-w-3xl mx-auto mt-10 px-3 text-base;
 
   h1 {
-    @apply text-4xl mb-3 font-bold;
+    @apply text-3xl md:text-4xl mb-8 font-bold;
+  }
+
+  ul {
+    list-style: disc;
   }
 
   p {
@@ -198,13 +209,4 @@ code {
 
 .body-menu-open {
   @apply overflow-hidden;
-}
-
-.sidebar {
-  width: 200px;
-}
-
-.content-layout {
-  @apply grid gap-6;
-  grid-template-columns: 225px auto;
 }

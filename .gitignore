@@ -4,3 +4,4 @@ _site
 .vercel
 .env
 .cache
+.parcel-cache

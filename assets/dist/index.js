@@ -211,10 +211,142 @@ function c(e, r, i) {
     } : t)(new URL(e, location.href).toString());
   }));
 }
+},{}],"../../node_modules/slide-element/dist/slide-element.es.min.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.up = exports.toggle = exports.down = void 0;
+
+/**
+  * slide-element
+  * Author: Alex MacArthur <alex@macarthur.me> (https://macarthur.me)
+  * URL: https://github.com/alexmacarthur/slide-element
+  */
+const t = ["height", "paddingTop", "paddingBottom"],
+      n = {
+  duration: .25,
+  timingFunction: "ease"
+},
+      o = (n, o, e = t) => {
+  for (let t in o) e.includes(t) || delete o[t];
+
+  Object.assign(n.style, o);
+},
+      e = t => t.replace(/-([a-z])/g, t => t[1].toUpperCase()),
+      i = (n, o) => new Promise(i => {
+  const a = o.reduce((t, o) => (t.push(((t, n) => new Promise(o => {
+    const i = function (d) {
+      e(d.propertyName) === n && (((t, n) => {
+        t.removeEventListener("transitionend", n), t.removeEventListener("transitioncancel", n);
+      })(t, i), o());
+    };
+
+    ((t, n) => {
+      t.addEventListener("transitionend", n), t.addEventListener("transitioncancel", n);
+    })(t, i);
+  }))(n, o)), t), []);
+  return Promise.all(a).then(() => {
+    d(n, [...t, "overflow", "transitionProperty", "transitionDuration", "transitionTimingFunction"]), i();
+  });
+}),
+      d = (t, n) => {
+  n.forEach(n => t.style[n] = "");
+},
+      a = t => window.getComputedStyle(t),
+      r = (t, n, e, d) => {
+  const {
+    fromTopPadding: r,
+    fromBottomPadding: s,
+    fromHeight: p,
+    toTopPadding: g,
+    toBottomPadding: m,
+    toHeight: c
+  } = e,
+        h = (l = {
+    paddingTop: [r, g],
+    paddingBottom: [s, m],
+    height: [p, c]
+  }, Object.keys(l).reduce((t, n) => {
+    const o = l[n].map(t => parseInt(t, 10));
+    return o[0] == o[1] || t.push(n), t;
+  }, []));
+  var l;
+  i(t, h).then(d), o(t, {
+    paddingTop: r,
+    paddingBottom: s,
+    height: p
+  }, h), ((t, n) => {
+    const o = a(t),
+          {
+      duration: e,
+      timingFunction: i
+    } = n,
+          d = {
+      overflow: "hidden",
+      transitionProperty: "padding, height",
+      transitionDuration: e + "s",
+      transitionTimingFunction: i
+    };
+
+    for (let t in d) o[t] === d[t] && delete d[t];
+
+    Object.assign(t.style, d);
+  })(t, n), requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      o(t, {
+        paddingTop: g,
+        paddingBottom: m,
+        height: c
+      }, h);
+    });
+  });
+},
+      s = (t, o = n) => new Promise(n => {
+  t.dataset.isSlidOpen = "true", t.style.display = "block";
+  const e = a(t);
+  r(t, o, {
+    fromTopPadding: "0px",
+    fromBottomPadding: "0px",
+    fromHeight: "0px",
+    toTopPadding: e.paddingTop,
+    toBottomPadding: e.paddingBottom,
+    toHeight: e.height
+  }, () => {
+    n(!0);
+  });
+}),
+      p = (t, o = n) => new Promise(n => {
+  const e = a(t);
+  r(t, o, {
+    fromTopPadding: e.paddingTop,
+    fromBottomPadding: e.paddingBottom,
+    toTopPadding: "0px",
+    toBottomPadding: "0px",
+    fromHeight: e.height,
+    toHeight: "0px"
+  }, () => {
+    delete t.dataset.isSlidOpen, t.style.display = "none", n(!1);
+  });
+}),
+      g = (t, o = n) => t.dataset.isSlidOpen ? p(t, o) : s(t, o);
+
+exports.toggle = g;
+exports.up = p;
+exports.down = s;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _quicklink = require("quicklink");
+
+var _slideElement = require("slide-element");
+
+document.getElementById("documentationNavigation").addEventListener("click", function (e) {
+  (0, _slideElement.toggle)(document.getElementById("sidebar"), function (opened) {
+    e.currentTarget.querySelector('svg').style.transform = "scaleX(".concat(opened ? -1 : 1, ");");
+  });
+});
 
 var MenuController = function MenuController() {
   var nav = document.getElementById('nav');
@@ -238,209 +370,5 @@ var MenuController = function MenuController() {
 
 MenuController();
 (0, _quicklink.listen)();
-},{"quicklink":"../../node_modules/quicklink/dist/quicklink.mjs"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-var global = arguments[3];
-var OVERLAY_ID = '__parcel__error__overlay__';
-var OldModule = module.bundle.Module;
-
-function Module(moduleName) {
-  OldModule.call(this, moduleName);
-  this.hot = {
-    data: module.bundle.hotData,
-    _acceptCallbacks: [],
-    _disposeCallbacks: [],
-    accept: function (fn) {
-      this._acceptCallbacks.push(fn || function () {});
-    },
-    dispose: function (fn) {
-      this._disposeCallbacks.push(fn);
-    }
-  };
-  module.bundle.hotData = null;
-}
-
-module.bundle.Module = Module;
-var checkedAssets, assetsToAccept;
-var parent = module.bundle.parent;
-
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = "" || location.hostname;
-  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56751" + '/');
-
-  ws.onmessage = function (event) {
-    checkedAssets = {};
-    assetsToAccept = [];
-    var data = JSON.parse(event.data);
-
-    if (data.type === 'update') {
-      var handled = false;
-      data.assets.forEach(function (asset) {
-        if (!asset.isNew) {
-          var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
-
-          if (didAccept) {
-            handled = true;
-          }
-        }
-      }); // Enable HMR for CSS by default.
-
-      handled = handled || data.assets.every(function (asset) {
-        return asset.type === 'css' && asset.generated.js;
-      });
-
-      if (handled) {
-        console.clear();
-        data.assets.forEach(function (asset) {
-          hmrApply(global.parcelRequire, asset);
-        });
-        assetsToAccept.forEach(function (v) {
-          hmrAcceptRun(v[0], v[1]);
-        });
-      } else if (location.reload) {
-        // `location` global exists in a web worker context but lacks `.reload()` function.
-        location.reload();
-      }
-    }
-
-    if (data.type === 'reload') {
-      ws.close();
-
-      ws.onclose = function () {
-        location.reload();
-      };
-    }
-
-    if (data.type === 'error-resolved') {
-      console.log('[parcel] ✨ Error resolved');
-      removeErrorOverlay();
-    }
-
-    if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
-      removeErrorOverlay();
-      var overlay = createErrorOverlay(data);
-      document.body.appendChild(overlay);
-    }
-  };
-}
-
-function removeErrorOverlay() {
-  var overlay = document.getElementById(OVERLAY_ID);
-
-  if (overlay) {
-    overlay.remove();
-  }
-}
-
-function createErrorOverlay(data) {
-  var overlay = document.createElement('div');
-  overlay.id = OVERLAY_ID; // html encode message and stack trace
-
-  var message = document.createElement('div');
-  var stackTrace = document.createElement('pre');
-  message.innerText = data.error.message;
-  stackTrace.innerText = data.error.stack;
-  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
-  return overlay;
-}
-
-function getParents(bundle, id) {
-  var modules = bundle.modules;
-
-  if (!modules) {
-    return [];
-  }
-
-  var parents = [];
-  var k, d, dep;
-
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d];
-
-      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(k);
-      }
-    }
-  }
-
-  if (bundle.parent) {
-    parents = parents.concat(getParents(bundle.parent, id));
-  }
-
-  return parents;
-}
-
-function hmrApply(bundle, asset) {
-  var modules = bundle.modules;
-
-  if (!modules) {
-    return;
-  }
-
-  if (modules[asset.id] || !bundle.parent) {
-    var fn = new Function('require', 'module', 'exports', asset.generated.js);
-    asset.isNew = !modules[asset.id];
-    modules[asset.id] = [fn, asset.deps];
-  } else if (bundle.parent) {
-    hmrApply(bundle.parent, asset);
-  }
-}
-
-function hmrAcceptCheck(bundle, id) {
-  var modules = bundle.modules;
-
-  if (!modules) {
-    return;
-  }
-
-  if (!modules[id] && bundle.parent) {
-    return hmrAcceptCheck(bundle.parent, id);
-  }
-
-  if (checkedAssets[id]) {
-    return;
-  }
-
-  checkedAssets[id] = true;
-  var cached = bundle.cache[id];
-  assetsToAccept.push([bundle, id]);
-
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    return true;
-  }
-
-  return getParents(global.parcelRequire, id).some(function (id) {
-    return hmrAcceptCheck(global.parcelRequire, id);
-  });
-}
-
-function hmrAcceptRun(bundle, id) {
-  var cached = bundle.cache[id];
-  bundle.hotData = {};
-
-  if (cached) {
-    cached.hot.data = bundle.hotData;
-  }
-
-  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
-    cached.hot._disposeCallbacks.forEach(function (cb) {
-      cb(bundle.hotData);
-    });
-  }
-
-  delete bundle.cache[id];
-  bundle(id);
-  cached = bundle.cache[id];
-
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    cached.hot._acceptCallbacks.forEach(function (cb) {
-      cb();
-    });
-
-    return true;
-  }
-}
-},{}]},{},["../../node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
+},{"quicklink":"../../node_modules/quicklink/dist/quicklink.mjs","slide-element":"../../node_modules/slide-element/dist/slide-element.es.min.js"}]},{},["index.js"], null)
 //# sourceMappingURL=/index.js.map

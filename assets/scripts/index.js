@@ -1,4 +1,11 @@
 import { listen as quickLinkListen } from "quicklink";
+import { toggle } from "slide-element";
+
+document.getElementById("documentationNavigation").addEventListener("click", (e) => {
+  toggle(document.getElementById("sidebar"), (opened => {
+    e.currentTarget.querySelector('svg').style.transform = `scaleX(${opened ? -1 : 1});`;
+  }));
+});
 
 const MenuController = () => {
   const nav = document.getElementById('nav');
@@ -22,5 +29,4 @@ const MenuController = () => {
 }
 
 MenuController();
-
 quickLinkListen();
