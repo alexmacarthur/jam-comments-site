@@ -342,9 +342,10 @@ var _quicklink = require("quicklink");
 
 var _slideElement = require("slide-element");
 
-document.getElementById("documentationNavigation").addEventListener("click", function (e) {
-  (0, _slideElement.toggle)(document.getElementById("sidebar"), function (opened) {
-    e.currentTarget.querySelector('svg').style.transform = "scaleX(".concat(opened ? -1 : 1, ");");
+var mobileMenuToggle = document.getElementById("documentationNavigation");
+mobileMenuToggle.addEventListener("click", function (e) {
+  (0, _slideElement.toggle)(document.getElementById("sidebar")).then(function (opened) {
+    mobileMenuToggle.querySelector('svg').style.transform = "scaleX(".concat(opened ? -1 : 1, ")");
   });
 });
 
@@ -358,7 +359,6 @@ var MenuController = function MenuController() {
   }
 
   navOpen.addEventListener('click', function (e) {
-    console.log(nav);
     nav.classList.add('menu-open');
     document.body.classList.add('body-menu-open');
   });
