@@ -123,95 +123,112 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.listen = i;
-exports.prefetch = c;
+exports.listen = c;
+exports.prefetch = u;
 
-function n(n) {
-  return new Promise(function (e, t, r) {
-    (r = new XMLHttpRequest()).open("GET", n, r.withCredentials = !0), r.onload = function () {
-      200 === r.status ? e() : t();
+function e(e) {
+  return new Promise(function (n, t, r) {
+    (r = new XMLHttpRequest()).open("GET", e, r.withCredentials = !0), r.onload = function () {
+      200 === r.status ? n() : t();
     }, r.send();
   });
 }
 
-var e,
-    t = (e = document.createElement("link")).relList && e.relList.supports && e.relList.supports("prefetch") ? function (n) {
-  return new Promise(function (e, t, r) {
-    (r = document.createElement("link")).rel = "prefetch", r.href = n, r.onload = e, r.onerror = t, document.head.appendChild(r);
+function n(n) {
+  return window.fetch ? fetch(n, {
+    credentials: "include"
+  }) : e(n);
+}
+
+var t,
+    r = (t = document.createElement("link")).relList && t.relList.supports && t.relList.supports("prefetch") ? function (e) {
+  return new Promise(function (n, t, r) {
+    (r = document.createElement("link")).rel = "prefetch", r.href = e, r.onload = n, r.onerror = t, document.head.appendChild(r);
   });
-} : n,
-    r = window.requestIdleCallback || function (n) {
-  var e = Date.now();
+} : e,
+    o = window.requestIdleCallback || function (e) {
+  var n = Date.now();
   return setTimeout(function () {
-    n({
+    e({
       didTimeout: !1,
       timeRemaining: function () {
-        return Math.max(0, 50 - (Date.now() - e));
+        return Math.max(0, 50 - (Date.now() - n));
       }
     });
   }, 1);
 },
-    o = new Set();
+    i = new Set();
 
-function i(n) {
-  if (n || (n = {}), window.IntersectionObserver) {
-    var e = function (n) {
-      n = n || 1;
-      var e = [],
+function c(e) {
+  if (e || (e = {}), window.IntersectionObserver) {
+    var n = function (e) {
+      e = e || 1;
+      var n = [],
           t = 0;
 
       function r() {
-        t < n && e.length > 0 && (e.shift()(), t++);
+        t < e && n.length > 0 && (n.shift()(), t++);
       }
 
-      return [function (n) {
-        e.push(n) > 1 || r();
+      return [function (e) {
+        n.push(e) > 1 || r();
       }, function () {
         t--, r();
       }];
-    }(n.throttle || 1 / 0),
-        t = e[0],
-        i = e[1],
-        u = n.limit || 1 / 0,
-        a = n.origins || [location.hostname],
-        f = n.ignores || [],
-        s = n.timeoutFn || r,
-        l = new IntersectionObserver(function (e) {
-      e.forEach(function (e) {
-        e.isIntersecting && (l.unobserve(e = e.target), o.size < u && t(function () {
-          c(e.href, n.priority).then(i).catch(function (e) {
-            i(), n.onError && n.onError(e);
-          });
-        }));
+    }(e.throttle || 1 / 0),
+        t = n[0],
+        r = n[1],
+        c = e.limit || 1 / 0,
+        f = e.origins || [location.hostname],
+        a = e.ignores || [],
+        s = e.delay || 0,
+        l = [],
+        h = e.timeoutFn || o,
+        d = "function" == typeof e.hrefFn && e.hrefFn,
+        m = new IntersectionObserver(function (n) {
+      n.forEach(function (n) {
+        if (n.isIntersecting) l.push((n = n.target).href), function (e, n) {
+          n ? setTimeout(e, n) : e();
+        }(function () {
+          -1 !== l.indexOf(n.href) && (m.unobserve(n), i.size < c && t(function () {
+            u(d ? d(n) : n.href, e.priority).then(r).catch(function (n) {
+              r(), e.onError && e.onError(n);
+            });
+          }));
+        }, s);else {
+          var o = l.indexOf((n = n.target).href);
+          o > -1 && l.splice(o);
+        }
       });
     });
 
-    return s(function () {
-      (n.el || document).querySelectorAll("a").forEach(function (n) {
-        a.length && !a.includes(n.hostname) || function n(e, t) {
+    return h(function () {
+      (e.el || document).querySelectorAll("a").forEach(function (e) {
+        f.length && !f.includes(e.hostname) || function e(n, t) {
           return Array.isArray(t) ? t.some(function (t) {
-            return n(e, t);
-          }) : (t.test || t).call(t, e.href, e);
-        }(n, f) || l.observe(n);
+            return e(n, t);
+          }) : (t.test || t).call(t, n.href, n);
+        }(e, a) || m.observe(e);
       });
     }, {
-      timeout: n.timeout || 2e3
+      timeout: e.timeout || 2e3
     }), function () {
-      o.clear(), l.disconnect();
+      i.clear(), m.disconnect();
     };
   }
 }
 
-function c(e, r, i) {
-  if (!(i = navigator.connection) || !i.saveData && !/2g/.test(i.effectiveType)) return Promise.all([].concat(e).map(function (e) {
-    if (!o.has(e)) return o.add(e), (r ? function (e) {
-      return window.fetch ? fetch(e, {
-        credentials: "include"
-      }) : n(e);
-    } : t)(new URL(e, location.href).toString());
+function u(e, t, o) {
+  if (o = navigator.connection) {
+    if (o.saveData) return Promise.reject(new Error("Cannot prefetch, Save-Data is enabled"));
+    if (/2g/.test(o.effectiveType)) return Promise.reject(new Error("Cannot prefetch, network conditions are poor"));
+  }
+
+  return Promise.all([].concat(e).map(function (e) {
+    if (!i.has(e)) return i.add(e), (t ? n : r)(new URL(e, location.href).toString());
   }));
 }
-},{}],"../../node_modules/slide-element/dist/slide-element.es.min.js":[function(require,module,exports) {
+},{}],"../../node_modules/slide-element/dist/index.modern.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -219,122 +236,59 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.up = exports.toggle = exports.down = void 0;
 
-/**
-  * slide-element
-  * Author: Alex MacArthur <alex@macarthur.me> (https://macarthur.me)
-  * URL: https://github.com/alexmacarthur/slide-element
-  */
-const t = ["height", "paddingTop", "paddingBottom"],
-      n = {
-  duration: .25,
-  timingFunction: "ease"
-},
-      o = (n, o, e = t) => {
-  for (let t in o) e.includes(t) || delete o[t];
-
-  Object.assign(n.style, o);
-},
-      e = t => t.replace(/-([a-z])/g, t => t[1].toUpperCase()),
-      i = (n, o) => new Promise(i => {
-  const a = o.reduce((t, o) => (t.push(((t, n) => new Promise(o => {
-    const i = function (d) {
-      e(d.propertyName) === n && (((t, n) => {
-        t.removeEventListener("transitionend", n), t.removeEventListener("transitioncancel", n);
-      })(t, i), o());
-    };
-
-    ((t, n) => {
-      t.addEventListener("transitionend", n), t.addEventListener("transitioncancel", n);
-    })(t, i);
-  }))(n, o)), t), []);
-  return Promise.all(a).then(() => {
-    d(n, [...t, "overflow", "transitionProperty", "transitionDuration", "transitionTimingFunction"]), i();
-  });
-}),
-      d = (t, n) => {
-  n.forEach(n => t.style[n] = "");
-},
-      a = t => window.getComputedStyle(t),
-      r = (t, n, e, d) => {
-  const {
-    fromTopPadding: r,
-    fromBottomPadding: s,
-    fromHeight: p,
-    toTopPadding: g,
-    toBottomPadding: m,
-    toHeight: c
-  } = e,
-        h = (l = {
-    paddingTop: [r, g],
-    paddingBottom: [s, m],
-    height: [p, c]
-  }, Object.keys(l).reduce((t, n) => {
-    const o = l[n].map(t => parseInt(t, 10));
-    return o[0] == o[1] || t.push(n), t;
-  }, []));
-  var l;
-  i(t, h).then(d), o(t, {
-    paddingTop: r,
-    paddingBottom: s,
-    height: p
-  }, h), ((t, n) => {
-    const o = a(t),
-          {
-      duration: e,
-      timingFunction: i
-    } = n,
-          d = {
+let e = (e, t) => {
+  let n = ["transitionend", "transitioncancel"],
+      i = () => e.clientHeight,
+      a = () => e.style,
+      o = e => a().display = e,
+      s = (e = !1) => {
+    let n = Object.assign({
+      height: "",
       overflow: "hidden",
-      transitionProperty: "padding, height",
-      transitionDuration: e + "s",
-      transitionTimingFunction: i
-    };
-
-    for (let t in d) o[t] === d[t] && delete d[t];
-
-    Object.assign(t.style, d);
-  })(t, n), requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      o(t, {
-        paddingTop: g,
-        paddingBottom: m,
-        height: c
-      }, h);
+      transitionDuration: ".25s",
+      transitionTimingFunction: "ease"
+    }, t);
+    Object.entries(n).forEach(([t, n]) => {
+      a()[t] = e ? "" : n;
     });
-  });
-},
-      s = (t, o = n) => new Promise(n => {
-  t.dataset.isSlidOpen = "true", t.style.display = "block";
-  const e = a(t);
-  r(t, o, {
-    fromTopPadding: "0px",
-    fromBottomPadding: "0px",
-    fromHeight: "0px",
-    toTopPadding: e.paddingTop,
-    toBottomPadding: e.paddingBottom,
-    toHeight: e.height
-  }, () => {
-    n(!0);
-  });
-}),
-      p = (t, o = n) => new Promise(n => {
-  const e = a(t);
-  r(t, o, {
-    fromTopPadding: e.paddingTop,
-    fromBottomPadding: e.paddingBottom,
-    toTopPadding: "0px",
-    toBottomPadding: "0px",
-    fromHeight: e.height,
-    toHeight: "0px"
-  }, () => {
-    delete t.dataset.isSlidOpen, t.style.display = "none", n(!1);
-  });
-}),
-      g = (t, o = n) => t.dataset.isSlidOpen ? p(t, o) : s(t, o);
+  },
+      r = t => new Promise(o => {
+    s();
+    let r = [i() + "px", "0px"];
+    t && r.reverse();
+    let [c, l] = r;
+    new Promise(t => {
+      n.forEach((i, a) => {
+        e.addEventListener(i, () => {
+          e.dispatchEvent(new TransitionEvent(n[1 ^ a])), t();
+        }, {
+          once: !0
+        });
+      });
+    }).then(() => {
+      s(!0), o();
+    }), a().height = c, requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        a().height = l;
+      });
+    });
+  }),
+      c = async () => (await r(!1), o("none"), Promise.resolve(!1)),
+      l = async () => (o("block"), await r(!0), Promise.resolve(!0));
 
-exports.toggle = g;
-exports.up = p;
-exports.down = s;
+  return {
+    up: c,
+    down: l,
+    toggle: () => i() ? c() : l()
+  };
+},
+    t = async (t, n = {}) => await e(t, n).down(),
+    n = async (t, n = {}) => await e(t, n).up(),
+    i = (t, n = {}) => e(t, n).toggle();
+
+exports.toggle = i;
+exports.up = n;
+exports.down = t;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -342,12 +296,19 @@ var _quicklink = require("quicklink");
 
 var _slideElement = require("slide-element");
 
-var mobileMenuToggle = document.getElementById("documentationNavigation");
-mobileMenuToggle.addEventListener("click", function (e) {
-  (0, _slideElement.toggle)(document.getElementById("sidebar")).then(function (opened) {
-    mobileMenuToggle.querySelector('svg').style.transform = "scaleX(".concat(opened ? -1 : 1, ")");
+var MobileMenuController = function MobileMenuController() {
+  var mobileMenuToggle = document.getElementById("documentationNavigation");
+
+  if (!mobileMenuToggle) {
+    return;
+  }
+
+  mobileMenuToggle.addEventListener("click", function (e) {
+    (0, _slideElement.toggle)(document.getElementById("sidebar")).then(function (opened) {
+      mobileMenuToggle.querySelector('svg').style.transform = "scaleX(".concat(opened ? -1 : 1, ")");
+    });
   });
-});
+};
 
 var MenuController = function MenuController() {
   var nav = document.getElementById('nav');
@@ -369,6 +330,7 @@ var MenuController = function MenuController() {
 };
 
 MenuController();
+MobileMenuController();
 (0, _quicklink.listen)();
-},{"quicklink":"../../node_modules/quicklink/dist/quicklink.mjs","slide-element":"../../node_modules/slide-element/dist/slide-element.es.min.js"}]},{},["index.js"], null)
+},{"quicklink":"../../node_modules/quicklink/dist/quicklink.mjs","slide-element":"../../node_modules/slide-element/dist/index.modern.js"}]},{},["index.js"], null)
 //# sourceMappingURL=/index.js.map

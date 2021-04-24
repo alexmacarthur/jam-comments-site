@@ -34,8 +34,10 @@ pre[class^=language] {
   @apply my-6 overflow-auto;
 }
 
-pre, pre * {
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+code {
+  * {
+    font: inherit;
+  }
 }
 
 html {
@@ -149,21 +151,17 @@ table td + td:before {
   background: theme('colors.gray.300');
 }
 
-.sidebar {
-  @apply pt-10;
-  width: 200px;
-}
-
 .content-layout {
   @apply grid md:gap-12 grid-cols-1 px-4;
 
   @screen md {
+    padding: 0 theme('padding.6') 0;
     grid-template-columns: 225px auto;
   }
 }
 
 .content {
-  @apply max-w-3xl mx-auto mt-10 px-3 text-base;
+  @apply max-w-3xl mx-auto mt-10 md:px-3 text-base;
 
   h1 {
     @apply text-3xl md:text-4xl mb-8 font-bold;
@@ -194,12 +192,6 @@ table td + td:before {
 
   h4 {
     @apply text-base;
-  }
-}
-
-code {
-  * {
-    font-size: 1rem !important;
   }
 }
 

@@ -4,7 +4,7 @@ title: "JamComments: Stupid-Simple, Static Comments"
 ---
 
 {% macro transitionArrow (text, icon, id) %}
-  <div class="flex justify-center bg-gray-100 rounded-tl-big rounded-br-big p-6 mx-auto max-w-5xl">
+  <div class="relative flex justify-center bg-gray-100 p-6 mx-auto w-screen left-[50%] transform -translate-x-1/2">
     <span class="w-20 md:w-32 h-20 md:h-32">
       {% include icon %}
     </span>
@@ -17,11 +17,11 @@ title: "JamComments: Stupid-Simple, Static Comments"
 <div class="px-1 md:px-6">
   <div class="max-w-5xl mx-auto px-3">
 
-    <div class="mb-40 lg:mb-32 mt-12 lg:mt-16">
+    <div class="mb-36 lg:mb-32 mt-12 lg:mt-16">
       {% include 'home/hero.njk' %}
     </div>
 
-    <div class="block md:hidden text-center -mt-20 mb-12">
+    <div class="block md:hidden text-center -mt-20 mb-20 md:mb-12">
       {% include 'interest-button.njk' %}
     </div>
 

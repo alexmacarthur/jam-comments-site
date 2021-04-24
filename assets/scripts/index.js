@@ -1,12 +1,19 @@
 import { listen as quickLinkListen } from "quicklink";
 import { toggle } from "slide-element";
 
-const mobileMenuToggle = document.getElementById("documentationNavigation");
-mobileMenuToggle.addEventListener("click", (e) => {
-  toggle(document.getElementById("sidebar")).then((opened) => {
-    mobileMenuToggle.querySelector('svg').style.transform = `scaleX(${opened ? -1 : 1})`;
+const MobileMenuController = () => {
+  const mobileMenuToggle = document.getElementById("documentationNavigation");
+
+  if(!mobileMenuToggle) {
+    return;
+  }
+
+  mobileMenuToggle.addEventListener("click", (e) => {
+    toggle(document.getElementById("sidebar")).then((opened) => {
+      mobileMenuToggle.querySelector('svg').style.transform = `scaleX(${opened ? -1 : 1})`;
+    });
   });
-});
+}
 
 const MenuController = () => {
   const nav = document.getElementById('nav');
@@ -29,4 +36,5 @@ const MenuController = () => {
 }
 
 MenuController();
+MobileMenuController();
 quickLinkListen();

@@ -9,6 +9,6 @@ module.exports = [
     },
     {
         heading: "Tailored to your SSG.",
-        description: "Rather than getting a big, one-size-fits-all JavaScript bundle to embed, JamComments will offer dedicated plugins specifically built for today's most popular static site generators (first GatsbyJS, followed by Eleventy, Jekyll, and maybe more)."
+        description: "Rather than getting a big, one-size-fits-all JavaScript bundle to embed, JamComments will offer dedicated plugins specifically built for today's most popular static site generators."
     },
 ];

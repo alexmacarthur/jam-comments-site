@@ -21,8 +21,34 @@ module.exports = {
           DEFAULT: {
             css: {
               color: theme('colors.gray.700'),
+              'pre code': {
+                fontSize: 'inherit !important',
+                padding: theme('padding.1'),
+              },
+              'td::before, th::before': {
+                content: 'none !important'
+              },
+              'ul > li': {
+                paddingLeft: '0 !important'
+              },
+              'ul > li::before': {
+                content: 'none'
+              },
               code: {
-                fontWeight: 'inherit'
+                fontWeight: '100 !important',
+                fontFamily: "Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace !important",
+                fontSize: theme('text.xl'),
+                color: theme('colors.gray.700'),
+                borderRadius: theme('border.sm'),
+                paddingTop: `1px !important`,
+                paddingBottom: `1px !important`,
+                background: theme('colors.gray.200')
+              },
+              'code::before': {
+                content: 'none'
+              },
+              'code::after': {
+                content: 'none'
               },
               'h1, h2, h3, h4, h5, h6': {
                 color: theme('colors.gray.800')
