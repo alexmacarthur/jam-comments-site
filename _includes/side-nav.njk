@@ -1,0 +1,24 @@
+<ul class="flex flex-col space-y-6">
+  {% for item in sidebar_items %}
+    <li>
+        <h4 class="font-normal mb-3">
+          {{ item.title }}
+        </h4>
+
+        {% if item.sub_items %}
+        <ul class="mt-2 flex flex-col space-y-2">
+          {% for sub_item in item.sub_items %}
+            <li>
+              <a
+                href="{{ sub_item.url }}"
+                class="side-nav-link {% if(sub_item.url | isOnPage(page.url)) %}is-on-page{% endif %}"
+              >
+                {{ sub_item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+  {% endfor %}
+</ul>

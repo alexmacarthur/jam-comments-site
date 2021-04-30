@@ -1,0 +1,22 @@
+<div class="max-w-5xl mx-auto py-16 px-2 md:px-12">
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-12">
+    {% for integration in integrations %}
+      <li class="text-center">
+        <h3 class="text-3xl font-bold mb-8">
+          {{ integration.heading }}
+          <span>
+            Integration
+          </span>
+        </h3>
+        <div class="flex flex-col justify-center items-center space-y-3">
+          <a href="{{ integration.docs }}" class="button">
+            Integration Docs
+          </a>
+          <a href="{{ integration.platform_docs }}" target="_blank" rel="noreferrer noopener">
+            Platform Docs
+          </a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

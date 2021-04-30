@@ -1,63 +1,61 @@
-{% extends "_includes/layout-home.njk" %}
+---
+layout: layout-main.njk
+title: "JamComments: Stupid-Simple, Static Comments"
+---
 
-{% block title %}JamComments: Stupid-Simple, Static Comments{% endblock %}
+{% macro transitionArrow (text, icon, id) %}
+  <div class="relative flex justify-center bg-gray-100 p-6 mx-auto w-screen left-[50%] transform -translate-x-1/2">
+    <span class="w-20 md:w-32 h-20 md:h-32">
+      {% include icon %}
+    </span>
+    <a href="#{{id}}" class="text-2xl flex items-center font-thin pl-3 outline-none" id="{{id}}">
+      {{ text }}
+    </span>
+  </div>
+{% endmacro %}
 
-{% block content %}
-    <div class="max-w-5xl mx-auto px-3">
-        <div class="text-center pt-8 md:pt-12 mx-auto max-w-3xl">
-            <h1 class="font-bold text-4xl md:text-6xl leading-tight mb-4">Stupid-Simple Comments for the Jamstack</h1>
-            <h2 class="text-xl md:text-2xl">
-                statically rendered, ad-free, nothing fancy.
-            </h2>
-        </div>
+<div class="px-1 md:px-6">
+  <div class="max-w-5xl mx-auto px-3">
 
-        <div class="block md:hidden text-center mt-12">
-            {% include 'interest-button.njk' %}
-        </div>
-
-        <div class="mb-10 mt-16 max-w-3xl mx-auto text-center">
-            <h2 class="text-2xl font-semibold mb-3">Your Jamstack blog isn't complicated. Comments shouldn't be either.</h2> 
-            <p class="text-lg">
-                Today, options to collect &amp; display comments on your static site require either manually piecing together a hodge-podge of technologies, or selling yourself (and your readers) to a behemoth, soulless, third-party service. JamComments doesn't try to be anything other than a stupid-simple comment service that's easy to set up and doesn't leave you feeling guilty after doing so.
-            </p>
-        </div>
-
-        <div class="h-16 md:h-20 my-12 md:my-16">
-            {% include 'down-arrow.svg' %}
-        </div>
-
-        <div class="max-w-xl mx-auto">
-            {% include 'home-highlights.njk' %}
-        </div>
-        
-        <div class="max-w-3xl mx-auto text-center">
-
-            <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
-
-            <div id="interest">
-                <h3 class="text-2xl mb-3 text-center font-semibold leading-tight">Sound like your jam? Sign up to hear when it's live.</h3>
-                <p class="mb-6 mx-auto max-w-2xl">
-                    The only time you'll get an email from me is when the first plugin is ready to be used (hint: it's for Gatsby!). After that, nothing.
-                </p>
-                <form id="interestForm" class="flex flex-col sm:flex-row justify-center">
-                    <input 
-                        placeholder="Email Address"
-                        type="email" 
-                        name="email" 
-                        class="border-gray-300 border-2 rounded-sm px-3 py-1 w-full sm:w-auto mb-4 sm:mb-0" />
-                    <button type="submit" class="button w-full sm:w-auto">
-                        Submit
-                    </button>
-                </form>
-
-                <span 
-                    id="interestConfirmation"
-                    style="display: none;"
-                    class="inline-block mt-6 px-3 py-2 rounded-sm text-white bg-gray-600">
-                        Gotcha! Expect an email when JamComments goes live, and then never again.
-                </span>
-            </div>
-        </div>
-        
+    <div class="mb-36 lg:mb-32 mt-12 lg:mt-16">
+      {% include 'home/hero.njk' %}
     </div>
-{% endblock %}
+
+    <div class="block md:hidden text-center -mt-20 mb-20 md:mb-12">
+      {% include 'interest-button.njk' %}
+    </div>
+
+    <div class="slice">
+      {% include 'home/intro.njk' %}
+    </div>
+
+    <div class="slice">
+      {{ transitionArrow("The advantages are straightforward.", "svg/bulb.svg", "perks")  }}
+    </div>
+
+    <div class="slice" id="highlights">
+      {% include 'home/highlights.njk' %}
+    </div>
+
+    <div class="slice">
+      {{ transitionArrow("And so is the pricing.", "svg/dollar.svg", "pricing")  }}
+    </div>
+
+    <div class="slice" id="pricing">
+      {% include 'home/pricing.njk' %}
+    </div>
+
+    <div class="slice">
+      {{ transitionArrow("So, choose your integration.", "svg/server.svg", "integrations")  }}
+    </div>
+
+    <div class="slice" id="integrations">
+      {% include 'home/integrations.njk' %}
+    </div>
+
+    <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
+
+    {% include 'home/final-cta.njk' %}
+
+  </div>
+</div>
