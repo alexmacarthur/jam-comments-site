@@ -30,6 +30,10 @@ code:not([class^=language]) {
   }
 }
 
+.logo svg {
+  @apply w-full h-full;
+}
+
 pre[class^=language] {
   @apply my-6 overflow-auto;
 }

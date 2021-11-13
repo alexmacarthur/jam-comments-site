@@ -2,15 +2,20 @@
   <a
     href="/"
     class="
+      logo
       text-base
       lg:text-2xl
-      font-bold
-      text-black
-      block
       py-3
+      flex
+      items-center
       "
-  >
-    JamComments
+    >
+    <span class="w-10 block mr-2">
+      {% include 'svg/comment.svg' %}
+    </span>
+    <span class="font-semibold lg:text-2xl text-black">
+      JamComments
+    </span>
   </a>
 
   <button class="md:hidden" id="navOpen">

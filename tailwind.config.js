@@ -1,8 +1,7 @@
 module.exports = {
   mode: 'jit',
   purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./**/*.njk'],
+    content: ['./**/*.njk', './_site/**/*.html'],
     options: {
       whitelist: ['bg-red-500', 'bg-green-500'],
     }
