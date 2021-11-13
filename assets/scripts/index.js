@@ -1,5 +1,6 @@
 import { listen as quickLinkListen } from "quicklink";
 import { toggle } from "slide-element";
+import "../styles/tailwind.css";
 
 const MobileMenuController = () => {
   const mobileMenuToggle = document.getElementById("documentationNavigation");

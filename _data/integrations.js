@@ -1,17 +1,14 @@
 module.exports = [
   {
     heading: "Gatsby",
-    docs: "/docs/integrations/gatsby",
-    platform_docs: "https://www.11ty.dev/docs"
+    docs: "/docs/integrations/gatsby"
   },
   {
     heading: "Eleventy",
-    docs: "/docs/integrations/eleventy",
-    platform_docs: "https://www.gatsbyjs.com/docs"
+    docs: "/docs/integrations/eleventy"
   },
   {
     heading: "Next.js",
-    docs: "/docs/integrations/next",
-    platform_docs: "https://nextjs.org/docs/getting-started"
+    docs: "/docs/integrations/next"
   },
 ];
