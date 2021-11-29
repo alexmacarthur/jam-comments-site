@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addWatchTarget("./assets");
   eleventyConfig.addPassthroughCopy("./assets");
+  eleventyConfig.addPassthroughCopy("./favicon.ico");
   eleventyConfig.addShortcode("version", function () {
     return String(Date.now());
   });
