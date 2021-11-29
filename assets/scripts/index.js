@@ -1,6 +1,7 @@
 import { listen as quickLinkListen } from "quicklink";
 import { toggle } from "slide-element";
 import "../styles/tailwind.css";
+import { sendEvent } from "./utils";
 
 const MobileMenuController = () => {
   const mobileMenuToggle = document.getElementById("documentationNavigation");
@@ -39,3 +40,11 @@ const MenuController = () => {
 MenuController();
 MobileMenuController();
 quickLinkListen();
+
+document.querySelectorAll('[data-sign-up-link]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    sendEvent('Sign Up', {
+      page_location: e.target.dataset.signUpLink
+    });
+  });
+});
