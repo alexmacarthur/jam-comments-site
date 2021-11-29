@@ -11,6 +11,9 @@ module.exports = {
       sans: ["Heebo", "sans-serif"]
     },
     extend: {
+      gridTemplateColumns: {
+        uneven: '3fr 2fr',
+      },
       maxWidth: {
         wide: "1300px"
       },

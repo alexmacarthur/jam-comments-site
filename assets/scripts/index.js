@@ -48,3 +48,20 @@ document.querySelectorAll('[data-sign-up-link]').forEach(link => {
     });
   });
 });
+
+let options = {
+  rootMargin: '500px',
+  threshold: 1.0
+}
+
+let observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src;
+    }
+  });
+}, options);
+
+document.querySelectorAll('img').forEach(img => {
+  observer.observe(img);
+});
