@@ -1,5 +1,19 @@
 {
   "redirects": [
-    { "source": "/docs", "destination": "/docs/getting-started", "permanent": false }
+    {
+      "source": "/docs",
+      "destination": "/docs/getting-started",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/js/numbers.js",
+      "destination": "https://analytics.macarthur.me/js/plausible.js"
+    },
+    {
+      "source": "/api/event",
+      "destination": "https://analytics.macarthur.me/api/event"
+    }
   ]
 }
