@@ -54,7 +54,7 @@ let options = {
   threshold: 1.0
 }
 
-let observer = new IntersectionObserver((entries, observer) => {
+let observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src;

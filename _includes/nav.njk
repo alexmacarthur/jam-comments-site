@@ -10,11 +10,8 @@
       items-center
       "
     >
-    <span class="w-10 block mr-2">
-      {% include 'svg/comment.svg' %}
-    </span>
-    <span class="font-semibold lg:text-2xl text-black">
-      JamComments
+    <span class="w-48">
+      {% include 'svg/logo-full.svg' %}
     </span>
   </a>
 
@@ -53,7 +50,7 @@
       {% include 'svg/times.svg' %}
     </span>
 
-    <ul class="space-y-5 md:space-y-0 md:space-x-6 md:flex">
+    <ul class="flex flex-col md:flex-row gap-4 lg:gap-6">
       {% for item in nav_items %}
         <li>
           <a
