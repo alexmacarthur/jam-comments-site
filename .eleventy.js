@@ -12,6 +12,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./assets");
   eleventyConfig.addPassthroughCopy("./assets");
   eleventyConfig.addPassthroughCopy("./favicon.ico");
+  eleventyConfig.addPassthroughCopy("./robots.txt");
   eleventyConfig.addShortcode("version", function () {
     return String(Date.now());
   });
