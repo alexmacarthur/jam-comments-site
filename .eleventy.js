@@ -4,6 +4,7 @@ const htmlmin = require("html-minifier");
 const mdIterator = require("markdown-it-for-inline");
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./assets/");
@@ -22,6 +23,12 @@ module.exports = function (eleventyConfig) {
     const slashLessPageUrl = removeLeadingAndTrailingSlashes(pageUrl);
 
     return slashLessPath === slashLessPageUrl;
+  });
+
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: "https://jamcomments.com",
+    },
   });
 
   // minify HTML
