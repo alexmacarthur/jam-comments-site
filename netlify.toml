@@ -1,4 +1,9 @@
 [[redirects]]
+  from = "/docs"
+  to = "/docs/getting-started"
+  status = 301
+
+[[redirects]]
   from = "/js/numbers.js"
   to = "https://analytics.macarthur.me/js/plausible.js"
   status = 200
