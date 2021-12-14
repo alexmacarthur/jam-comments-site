@@ -14,6 +14,10 @@ title: "JamComments: Stupid-Simple, Static Comments"
   </div>
 {% endmacro %}
 
+{% macro hr () %}
+  <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
+{% endmacro %}
+
 <div class="px-1 md:px-6">
   <div class="max-w-5xl mx-auto px-3">
 
@@ -24,6 +28,8 @@ title: "JamComments: Stupid-Simple, Static Comments"
     <div class="block md:hidden text-center -mt-20 mb-20 md:mb-12">
       {% include 'interest-button.njk' %}
     </div>
+
+    {{ hr() }}
 
     <div class="slice">
       {% include 'home/intro.njk' %}
@@ -46,6 +52,14 @@ title: "JamComments: Stupid-Simple, Static Comments"
     </div>
 
     <div class="slice">
+      {{ transitionArrow("With simple steps to get set up.", "svg/map.svg", "how-it-works")  }}
+    </div>
+
+    <div class="slice" id="steps">
+      {% include 'home/steps.njk' %}
+    </div>
+
+    <div class="slice">
       {{ transitionArrow("And straightforward pricing.", "svg/dollar.svg", "pricing")  }}
     </div>
 
@@ -61,7 +75,7 @@ title: "JamComments: Stupid-Simple, Static Comments"
       {% include 'home/integrations.njk' %}
     </div>
 
-    <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
+    {{ hr() }}
 
     {% include 'home/final-cta.njk' %}
 

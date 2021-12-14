@@ -1,0 +1,20 @@
+<ul class="flex items-center gap-8 py-16 flex-col md:flex-row">
+  {% for step in homeSteps %}
+    <li>
+      <h3 class="text-2xl font-semibold leading-tight mb-2">
+        {{ step.heading | safe }}
+      </h3>
+      <p>
+          {{ step.description | safe }}
+      </p>
+    </li>
+
+    {% if loop.index + 1 <= loop.length %}
+      <li class="rotate-90 md:rotate-0">
+        <i class="block w-12 h-12 -ml-5">
+          {% include "svg/right-arrow.svg" %}
+        </i>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

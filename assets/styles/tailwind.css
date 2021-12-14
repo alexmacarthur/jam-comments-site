@@ -205,3 +205,24 @@ table td + td:before {
 .body-menu-open {
   @apply overflow-hidden;
 }
+
+.horizontal-list li:after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  border-radius: 50%;
+  position: absolute;
+  right: -1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+
+  @screen md {
+    display: block;
+  }
+}
+
+.horizontal-list li:last-child:after {
+  content: none;
+}

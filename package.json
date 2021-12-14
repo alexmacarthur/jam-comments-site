@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve-eleventy": "NODE_ENV=development eleventy --serve",
-    "watch": "vite build --watch",
+    "watch": "TAILWIND_MODE=watch vite build --watch",
     "start": "concurrently \"npm run serve-eleventy\" \"npm run watch\"",
     "build": "rm -rf _site && vite build && ELEVENTY_PRODUCTION=true eleventy"
   },
