@@ -1,4 +1,6 @@
 ---
+default_description: A statically rendered, ad-free, intentionally boring solution to adding comments to your Jamstack site.
+default_title: "JamComments: A guilt-free comment service for Jamstack blogs."
 nav_items:
   -
     title: Documentation
@@ -21,16 +23,16 @@ nav_items:
 <html lang="en">
   <head>
     <title>
-      {{ title }}
+      {{ title + ' | JamComments' | default(default_title) }}
     </title>
     <meta charset="UTF-8"/>
-    <meta name="description" content="A statically rendered, ad-free, intentionally boring solution to adding comments to your Jamstack site."/>
+    <meta name="description" content="{{ description | default(default_description) }}"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-    <meta property="og:title" content="JamComments: Stupid-Simple Comments for the Jamstack" />
+    <meta property="og:title" content="{{ title + ' | JamComments' | default(default_title) }}" />
     <meta property="og:image" content="https://jamcomments.com/assets/img/open-graph.jpg" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="A statically rendered, ad-free, intentionally boring solution to adding comments to your Jamstack site.">
+    <meta property="og:description" content="{{ description | default(default_description) }}">
 
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">

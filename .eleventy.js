@@ -9,7 +9,6 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addWatchTarget("./assets/");
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addWatchTarget("./assets");
   eleventyConfig.addPassthroughCopy("./assets");

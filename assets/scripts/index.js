@@ -1,6 +1,6 @@
 import { listen as quickLinkListen } from "quicklink";
 import { toggle } from "slide-element";
-import "../styles/tailwind.css";
+// import "../styles/tailwind.css";
 import { sendEvent } from "./utils";
 
 const MobileMenuController = () => {

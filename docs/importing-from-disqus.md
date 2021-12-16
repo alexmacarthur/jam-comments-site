@@ -1,6 +1,7 @@
 ---
 layout: layout-page.njk
 title: Importing from Disqus
+description: How to migrate your blog post comments from Disqus to JamComments.
 ---
 
 If you were previously a Disqus user before coming to JamComments, you won't be asked to totally abandon all of that sweet, written engagement with your content. Follow the steps below to migrate those comments into JamComments, and obtain the performance and SEO benefits statically-rendered HTML and no more creepy [data-mining tactics](https://techcrunch.com/2021/05/05/disqus-facing-3m-fine-in-norway-for-tracking-users-without-consent/).

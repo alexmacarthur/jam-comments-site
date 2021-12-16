@@ -73,7 +73,7 @@ h1 {
 }
 
 .slice {
-  @apply my-12;
+  @apply my-12 py-8;
 
   @screen md {
     margin-bottom: theme('margin.16');
