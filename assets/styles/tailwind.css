@@ -11,8 +11,12 @@
   font-weight: 300;
 }
 
-code:not([class^=language]) {
+code:not([class^=language-]) {
   @apply bg-gray-200 py-0 px-1 rounded-sm;
+}
+
+code[class*="language-"] {
+  @apply px-0 !important;
 }
 
 .warning {
@@ -20,7 +24,7 @@ code:not([class^=language]) {
   padding-left: theme('width.16');
 
   &:before {
-    @apply w-10 h-10 block absolute;
+    @apply w-6 h-6 block absolute;
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);

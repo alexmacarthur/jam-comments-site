@@ -7,31 +7,39 @@ These instructions assume you've already created a JamComments account as well a
 
 ## Installation & Configuration
 
-Install the plugin by running `npm install @jam-comments/gatsby` or `yarn add @jam-comments/gatsby`. After doing so, configure it by adding the following to your `gatsby-node.js`. In your deployed site, it's recommended to store the values in [environment variables](https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/).
+Install the plugin by running `npm install @jam-comments/gatsby` or `yarn add @jam-comments/gatsby`. After doing so, configure it by adding the following to your `gatsby-config.js`.
+
+<div class="warning">
+  <span>
+    In your deployed site, it's strongly recommended to store the values in <a href="https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/">environment variables</a>.
+  </span>
+</div>
 
 ```javascript
-// Assumes you have a `.env.development` file set up for local testing.
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
-resolve: '@jam-comments/gatsby',
-  options: {
-    api_key: process.env.JAM_COMMENTS_API_KEY,
-    domain: process.env.JAM_COMMENTS_DOMAIN
-  }
-}
+module.exports = {
+  // ... other configuration stuff
+  plugins: [
+    // ...other plugins
+    {
+      resolve: '@jam-comments/gatsby',
+      options: {
+        api_key: process.env.JAM_COMMENTS_API_KEY,
+        domain: process.env.JAM_COMMENTS_DOMAIN
+      }
+    }
+  ]
+};
 ```
 
 ## Usage
 
 ### Embedding Comments
 
-To include a comment form and existing comments on your blog posts, you'll need to place the following component on your page component(s), along with the required `path`, `pageContext`, `apiKey`, and `domain` props.
+To include a comment form and existing comments on your blog posts, you'll need to place the following component on your page component(s), along with the required `pageContext`, `apiKey`, and `domain` props.
 
 ```jsx
 import React from "react";
-import JamComments from "@jam-comments/gatsby";
+import JamComments from "@jam-comments/gatsby/ui";
 
 const MyPost = (props) => {
   return (
@@ -39,7 +47,6 @@ const MyPost = (props) => {
       <h1>{props.title}</h1>
       <div>{props.content}</div>
       <JamComments
-        path={props.path}
         pageContext={props.pageContext}
         apiKey={process.env.JAM_COMMENTS_API_KEY}
         domain={process.env.JAM_COMMENTS_DOMAIN}
@@ -52,14 +59,6 @@ export default MyPost;
 ```
 
 ### Component Props
-
-#### `path`
-
-The relative path of the blog post or page. This is the portion of the URL following the domain, and it should be provided by Gatsby when the page is generated. For example:
-
-Full URL                                             | Path
----------------------------------------------------- | --------------------------------
-`https://macarthur.me/posts/why-i-like-tailwind-css` | `/posts/why-i-like-tailwind-css`
 
 #### `pageContext`
 

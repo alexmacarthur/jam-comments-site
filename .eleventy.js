@@ -103,4 +103,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.setLibrary("md", markdownLibrary);
+
+  return {
+    markdownTemplateEngine: false
+  }
 };

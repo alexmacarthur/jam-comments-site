@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'jit',
   content: ['./**/*.njk', './_site/**/*.html'],
   theme: {
     fontFamily: {

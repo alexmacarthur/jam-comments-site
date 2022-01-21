@@ -1,6 +1,6 @@
 const plugins = {
-  'tailwindcss': {},
-  'postcss-nested': {}
+  'tailwindcss/nesting': {},
+  'tailwindcss': {}
 };
 
 if(process.env.NODE_ENV === 'production') {
