@@ -1,11 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: {
-    content: ['./**/*.njk', './_site/**/*.html'],
-    options: {
-      whitelist: ['bg-red-500', 'bg-green-500'],
-    }
-  },
+  content: ['./**/*.njk', './_site/**/*.html'],
   theme: {
     fontFamily: {
       sans: ["Heebo", "sans-serif"]
