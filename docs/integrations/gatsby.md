@@ -35,7 +35,7 @@ module.exports = {
 
 ### Embedding Comments
 
-To include a comment form and existing comments on your blog posts, you'll need to place the following component on your page component(s), along with the required `pageContext`, `apiKey`, and `domain` props.
+To include a form and comments on your blog posts, you'll need to place the following component in your page component, along with the required `pageContext` prop. [This object](https://www.gatsbyjs.com/docs/creating-and-modifying-pages) holds any comment data that's already been submitted, which will then be rendered on the page when it's built.
 
 ```jsx
 import React from "react";
@@ -48,47 +48,12 @@ const MyPost = (props) => {
       <div>{props.content}</div>
       <JamComments
         pageContext={props.pageContext}
-        apiKey={process.env.JAM_COMMENTS_API_KEY}
-        domain={process.env.JAM_COMMENTS_DOMAIN}
       />
     </article>
   );
 };
 
 export default MyPost;
-```
-
-### Component Props
-
-#### `pageContext`
-
-Also provided by Gatsby, the `pageContext` object holds any comment data that's already been submitted, which will then be rendered on the page when it's built.
-
-#### `apiKey`
-
-You API key for the site generated in the JamComments dashboard. It'll be the same value used in your `gatsby-config.js` file, so you should probably store it in the same environment variable for easy sharing.
-
-#### `domain`
-
-The domain for your blog.
-
-### Querying for Data
-
-If needed, you can query available comments by using the following type of query:
-
-```graphql
-{
-  allJamComment(limit: 10) {
-    edges {
-      node {
-        content
-        name
-        path
-        id
-      }
-    }
-  }
-}
 ```
 
 ### Contributions
