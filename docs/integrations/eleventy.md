@@ -42,7 +42,7 @@ Embed the `jamcomments` Nunjucks shortcode in the template that renders individu
 <p>Here's some page content.</p>
 
 <!-- Form and comments will render here! -->
-{{ "{% jamcomments %}" | escape }}
+{% jamcomments %}
 ```
 
 ## Supported Rendering Engines
