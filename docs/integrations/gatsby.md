@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: '@jam-comments/gatsby',
       options: {
-        api_key: process.env.JAM_COMMENTS_API_KEY,
+        apiKey: process.env.JAM_COMMENTS_API_KEY,
         domain: process.env.JAM_COMMENTS_DOMAIN
       }
     }
