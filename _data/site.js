@@ -1,4 +1,5 @@
 module.exports = {
   isProd: process.env.ELEVENTY_PRODUCTION === 'true',
-  signUpUrl: 'https://go.jamcomments.com'
+  dashboardUrl: 'https://go.jamcomments.com',
+  registerUrl: 'https://go.jamcomments.com/register'
 };
