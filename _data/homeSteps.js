@@ -1,7 +1,7 @@
 module.exports = [
   {
     heading: "Create an Account",
-    description: `It's completely free. No card required. Authentication managed by <a href="https://auth0.com/" target="_blank">Auth0</a>.`
+    description: `It's completely free. No card required.`
   },
   {
     heading: "Install an Integration",

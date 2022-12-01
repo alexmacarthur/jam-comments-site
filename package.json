@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve-eleventy": "eleventy --serve",
-    "watch:js": "vite build --watch",
-    "watch:css": "TAILWIND_MODE=watch npm run build:css -- --watch",
-    "build:css": "postcss ./assets/styles/tailwind.css -o ./assets/dist/style.css",
+    "dev:serve-eleventy": "eleventy --serve",
+    "dev:js": "vite build --watch",
+    "dev:css": "npm run build:css -- --watch",
+    "build:css": "tailwindcss -i ./assets/styles/tailwind.css -o ./assets/dist/style.css --postcss",
     "build": "export NODE_ENV=production; rm -rf _site && vite build && npm run build:css && ELEVENTY_PRODUCTION=true eleventy",
-    "start": "concurrently \"npm run serve-eleventy\" \"npm run watch:css\" \"npm run watch:js\""
+    "start": "npm-run-all -p dev:*"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,7 @@
     "isomorphic-fetch": "^3.0.0",
     "markdown-it-anchor": "^8.6.5",
     "markdown-it-for-inline": "^0.1.1",
+    "npm-run-all": "^4.1.5",
     "postcss-cli": "^10.0.0",
     "quicklink": "^2.3.0",
     "slide-element": "^2.3.0",
@@ -33,7 +34,6 @@
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "autoprefixer": "^10.4.13",
-    "concurrently": "^7.6.0",
     "cssnano": "^5.1.14",
     "postcss": "^8.4.19",
     "postcss-nested": "^6.0.0",

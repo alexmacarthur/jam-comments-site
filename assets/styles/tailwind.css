@@ -65,11 +65,11 @@ h1 {
 }
 
 .button {
-  @apply bg-gray-200 rounded-md py-3 px-4 text-gray-800 shadow-sm border-gray-200 border-2;
+  @apply bg-gray-200 rounded-md py-2 px-3 text-gray-800 shadow-sm border-gray-200 border-2;
 }
 
 .button.button--bright {
-  @apply bg-purple-500 border-2 border-purple-500 text-white hover:bg-white hover:border-purple-500 hover:text-purple-500;
+  @apply bg-black border-2 border-black text-white hover:bg-white hover:border-black hover:text-black;
 }
 
 .button:hover {
