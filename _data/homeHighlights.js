@@ -5,7 +5,7 @@ module.exports = [
   },
   {
     heading: "No ads, data mining, or tracking.",
-    description: "By being \"stupid-simple\", JamComments is too dump to give a rip about selling your readers garbage or collecting any bit of information to resell. It just collects & serve comments. Nothing really fancy."
+    description: "By being \"stupid-simple\", JamComments is too dumb to give a rip about selling your readers garbage or collecting any bit of information to resell. It just collects & serve comments. Nothing really fancy."
   },
   {
     heading: "Tailored to your SSG.",
