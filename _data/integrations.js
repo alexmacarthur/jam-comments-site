@@ -1,14 +1,18 @@
 module.exports = [
   {
-    heading: "Gatsby",
-    docs: "/docs/integrations/gatsby"
+    heading: "Astro",
+    docs: "/docs/integrations/astro"
   },
   {
     heading: "Eleventy",
     docs: "/docs/integrations/eleventy"
   },
   {
+    heading: "Gatsby",
+    docs: "/docs/integrations/gatsby"
+  },
+  {
     heading: "Next.js",
     docs: "/docs/integrations/next"
-  },
+  }
 ];
