@@ -2,7 +2,7 @@ module.exports = [
   {
     title: "Hobby",
     price: "$0/month",
-    description: "Give it a shot for a while. Collect up to <strong>10 comments</strong> on one site for free."
+    description: "Give it a shot for a while. Collect a total of <strong>10 comments</strong> on a site for free."
   },
   {
     title: "Pro",

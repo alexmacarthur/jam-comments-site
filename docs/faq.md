@@ -18,6 +18,9 @@ That functionality has yet to be built into the application, but I can get it fo
 ### Can I migrate data from Disqus?
 
 Not yet.
+### What will the Hobby plan get me?
+
+With the Hobby plan, you can collect up to 10 comments on a single site. That count doesn't reset after each month. So, once you've hit 10 comments, you'll need to upgrade to a paid plan.
 ### Can I style everything differently?
 
 Yes! You're encouraged to override styles as needed. A decent, base-level of styles was built into each integration, but to make it fit the look & feel of your site, you can override the `jc-*` classes to your liking. Get friendly with your browser's dev tools and have at it.
