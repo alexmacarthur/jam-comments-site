@@ -12,6 +12,10 @@ module.exports = [
     docs: "/docs/integrations/gatsby"
   },
   {
+    heading: "Jekyll",
+    docs: "/docs/integrations/jekyll"
+  },
+  {
     heading: "Next.js",
     docs: "/docs/integrations/next"
   }
