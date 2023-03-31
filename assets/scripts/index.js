@@ -1,6 +1,5 @@
 import { listen as quickLinkListen } from "quicklink";
 import { toggle } from "slide-element";
-// import "../styles/tailwind.css";
 import { sendEvent } from "./utils";
 
 const MobileMenuController = () => {
@@ -56,8 +55,9 @@ let options = {
 
 let observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting && entry.target.dataset.src) {
       entry.target.src = entry.target.dataset.src;
+      entry.target.removeAttribute('data-src');
     }
   });
 }, options);

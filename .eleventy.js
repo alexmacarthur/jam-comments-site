@@ -4,6 +4,7 @@ const htmlmin = require("html-minifier");
 const path = require("path");
 const mdIterator = require("markdown-it-for-inline");
 const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const Image = require("@11ty/eleventy-img");
@@ -103,6 +104,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.setLibrary("md", markdownLibrary);
+  eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItAnchor));
 
   return {
     markdownTemplateEngine: false
