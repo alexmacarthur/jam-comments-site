@@ -3,7 +3,9 @@ layout: layout-page.njk
 title: Importing Comments
 ---
 
-You can import your comments by uploading a CSV file on the [import page](https://go.jamcomments/settings/import) within the JamComments dashboard. Currently, you can import comments only from WordPress, but Disqus will eventually be supported as well.
+You can import your comments by uploading a CSV file on the [import page](https://go.jamcomments/settings/import) within the JamComments dashboard. Currently, you can import comments only from WordPress, but Disqus will eventually be supported as well. Here's a quick overview of the process:
+
+![Image Upload Demo](/assets/img/import-demo.gif)
 
 ## Importing from WordPress
 

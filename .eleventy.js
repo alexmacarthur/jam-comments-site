@@ -5,6 +5,7 @@ const path = require("path");
 const mdIterator = require("markdown-it-for-inline");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const lazyLoading = require('markdown-it-image-lazy-loading');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const Image = require("@11ty/eleventy-img");
@@ -86,8 +87,10 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true,
-  }).use(mdIterator, "url_new_win", "link_open", function (tokens, idx) {
-    const [attrName, href] = tokens[idx].attrs.find(
+  })
+  .use(lazyLoading, { decoding: true })
+  .use(mdIterator, "url_new_win", "link_open", function (tokens, idx) {
+    const [, href] = tokens[idx].attrs.find(
       (attr) => attr[0] === "href"
     );
 
