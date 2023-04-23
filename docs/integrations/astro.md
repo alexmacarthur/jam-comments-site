@@ -11,11 +11,11 @@ These instructions assume you've already created a JamComments account as well a
 
 Install the plugin by running `npm install @jam-comments/astro` or `yarn add @jam-comments/astro`. After doing so, configure it by setting the following environment variables in your site:
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| `JAM_COMMENTS_DOMAIN` | The domain for your site as [configured in your account](https://go.jamcomments.com/sites). Don't include the protocol ("https").|
-| `JAM_COMMENTS_API_KEY`   | The API generated in [your account settings](https://go.jamcomments.com/settings).|
-| `JAM_COMMENTS_ENVIRONMENT`  | Setting this to `development` will cause "dummy" comments to be locally rendered, which is helpful for styling. |
+| Syntax                     | Description                                                                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `JAM_COMMENTS_DOMAIN`      | The domain for your site as [configured in your account](https://go.jamcomments.com/sites). Don't include the protocol ("https"). |
+| `JAM_COMMENTS_API_KEY`     | The API generated in [your account settings](https://go.jamcomments.com/settings).                                                |
+| `JAM_COMMENTS_ENVIRONMENT` | Setting this to `development` will cause "dummy" comments to be locally rendered, which is helpful for styling.                   |
 
 ## Usage
 

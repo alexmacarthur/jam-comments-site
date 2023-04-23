@@ -9,9 +9,9 @@ The official plugin for integrating [JamComments](https://jamcomments.com) into 
 
 In order to use this plugin, you'll need to do the following:
 
-* Create a new JamComments account ([create one here](https://go.jamcomments.com/register)).
-* [Create a new site](https://go.jamcomments.com/sites) after logging into the dashboard.
-* [Generate an API key](https://go.jamcomments.com/settings) and store it in a safe location.
+- Create a new JamComments account ([create one here](https://go.jamcomments.com/register)).
+- [Create a new site](https://go.jamcomments.com/sites) after logging into the dashboard.
+- [Generate an API key](https://go.jamcomments.com/settings) and store it in a safe location.
 
 ## Installation
 

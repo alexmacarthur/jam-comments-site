@@ -9,7 +9,8 @@
     "dev:css": "npm run build:css -- --watch",
     "build:css": "tailwindcss -i ./assets/styles/tailwind.css -o ./assets/dist/style.css --postcss",
     "build": "export NODE_ENV=production; rm -rf _site && vite build && npm run build:css && ELEVENTY_PRODUCTION=true eleventy",
-    "start": "npm-run-all -p dev:*"
+    "start": "npm-run-all -p dev:*",
+    "format": "prettier --write **/*.{md,js}"
   },
   "keywords": [],
   "author": "",
@@ -33,11 +34,12 @@
   },
   "devDependencies": {
     "@11ty/eleventy-img": "^3.1.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.23",
     "postcss-nested": "^6.0.1",
-    "vite": "^4.2.1"
+    "prettier": "^2.8.8",
+    "vite": "^4.3.1"
   }
 }

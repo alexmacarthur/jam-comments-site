@@ -21,13 +21,13 @@ module.exports = {
   plugins: [
     // ...other plugins
     {
-      resolve: '@jam-comments/gatsby',
+      resolve: "@jam-comments/gatsby",
       options: {
         apiKey: process.env.JAM_COMMENTS_API_KEY,
-        domain: process.env.JAM_COMMENTS_DOMAIN
-      }
-    }
-  ]
+        domain: process.env.JAM_COMMENTS_DOMAIN,
+      },
+    },
+  ],
 };
 ```
 
@@ -46,9 +46,7 @@ const MyPost = (props) => {
     <article>
       <h1>{props.title}</h1>
       <div>{props.content}</div>
-      <JamComments
-        pageContext={props.pageContext}
-      />
+      <JamComments pageContext={props.pageContext} />
     </article>
   );
 };

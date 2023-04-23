@@ -17,11 +17,11 @@ gem "jekyll_jam_comments"
 
 After doing so, set up the following environment variables for your site:
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| `JAM_COMMENTS_DOMAIN` | The domain for your site as [configured in your account](https://go.jamcomments.com/sites). Don't include the protocol ("https").|
-| `JAM_COMMENTS_API_KEY`   | The API generated in [your account settings](https://go.jamcomments.com/settings).|
-| `JAM_COMMENTS_ENVIRONMENT`  | Setting this to `development` will cause "dummy" comments to be locally rendered, which is helpful for styling. By default, this will fall back to the value of `JEKYLL_ENV`.|
+| Syntax                     | Description                                                                                                                                                                   |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `JAM_COMMENTS_DOMAIN`      | The domain for your site as [configured in your account](https://go.jamcomments.com/sites). Don't include the protocol ("https").                                             |
+| `JAM_COMMENTS_API_KEY`     | The API generated in [your account settings](https://go.jamcomments.com/settings).                                                                                            |
+| `JAM_COMMENTS_ENVIRONMENT` | Setting this to `development` will cause "dummy" comments to be locally rendered, which is helpful for styling. By default, this will fall back to the value of `JEKYLL_ENV`. |
 
 If you'd like to set these values within your `config.yml` file, you may do so:
 

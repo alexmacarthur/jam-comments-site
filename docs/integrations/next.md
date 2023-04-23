@@ -27,11 +27,11 @@ import { JamComments } from "@jam-comments/next";
 export default function Post({ content, commentData }) {
   return (
     <article>
-      <div dangerouslySetInnerHTML={{__html: content}}></div>
+      <div dangerouslySetInnerHTML={{ __html: content }}></div>
 
       <JamComments markup={commentData} />
     </article>
-  )
+  );
 }
 
 export async function getStaticProps({ params }) {
@@ -42,14 +42,14 @@ export async function getStaticProps({ params }) {
   const commentData = await fetchMarkup({
     domain: process.env.JAM_COMMENTS_DOMAIN,
     apiKey: process.env.JAM_COMMENTS_API_KEY,
-    path: `/posts/${params.slug}`
+    path: `/posts/${params.slug}`,
   });
 
   // Pass domain, API key, and comments to `props` for use client-side.
   return {
     props: {
       commentData,
-      content
+      content,
     },
   };
 }
