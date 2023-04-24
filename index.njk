@@ -14,6 +14,19 @@ title: "JamComments: Stupid-Simple, Static Comments"
   </div>
 {% endmacro %}
 
+{% macro ctaButton(placement) %}
+  <div class="text-center">
+    <a
+      class="button button--bright"
+      href="{{ site.registerUrl }}?utm_source={{placement}}&utm_medium=website"
+      target="_blank"
+      data-sign-up-link="{{placement}}"
+      >
+      Create a Free Account
+    </a>
+  </div>
+{% endmacro %}
+
 {% macro hr () %}
   <hr class="max-w-3xl mx-auto block h-1 rounded-sm bg-gray-200 mt-5 mb-10 shadow-none border-0" />
 {% endmacro %}
@@ -39,6 +52,8 @@ title: "JamComments: Stupid-Simple, Static Comments"
       {% include 'home/highlights.njk' %}
     </div>
 
+    {{ ctaButton("after-highlights") }}
+
     <div class="slice">
       {{ transitionArrow("With the basic moderation tools you'd expect.", "svg/lock.svg", "moderation")  }}
     </div>
@@ -46,6 +61,8 @@ title: "JamComments: Stupid-Simple, Static Comments"
     <div class="slice" id="admin">
       {% include 'home/admin.njk' %}
     </div>
+
+    {{ ctaButton("after-admin") }}
 
     <div class="slice">
       {{ transitionArrow("With simple steps to get set up.", "svg/map.svg", "how-it-works")  }}
@@ -55,6 +72,8 @@ title: "JamComments: Stupid-Simple, Static Comments"
       {% include 'home/steps.njk' %}
     </div>
 
+    {{ ctaButton("after-steps") }}
+
     <div class="slice">
       {{ transitionArrow("And straightforward pricing.", "svg/dollar.svg", "pricing")  }}
     </div>
@@ -62,6 +81,8 @@ title: "JamComments: Stupid-Simple, Static Comments"
     <div class="slice" id="pricing">
       {% include 'home/pricing.njk' %}
     </div>
+
+    {{ ctaButton("after-pricing") }}
 
     <div class="slice">
       {{ transitionArrow("So, choose your integration.", "svg/server.svg", "integrations")  }}

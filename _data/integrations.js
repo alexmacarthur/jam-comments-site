@@ -19,4 +19,8 @@ module.exports = [
     heading: "Next.js",
     docs: "/docs/integrations/next",
   },
+  {
+    heading: "Bridgetown.rb",
+    docs: "/docs/integrations/bridgetown",
+  },
 ];
