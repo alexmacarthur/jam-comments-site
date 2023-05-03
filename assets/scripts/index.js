@@ -5,7 +5,7 @@ import { sendEvent } from "./utils";
 const MobileMenuController = () => {
   const mobileMenuToggle = document.getElementById("documentationNavigation");
 
-  if(!mobileMenuToggle) {
+  if (!mobileMenuToggle) {
     return;
   }
 
@@ -21,19 +21,29 @@ const MenuController = () => {
   const navOpen = document.getElementById('navOpen');
   const navClose = document.getElementById('navClose');
 
-  if(!nav) {
+  function close() {
+    nav.classList.remove('menu-open');
+    document.body.classList.remove('body-menu-open');
+  }
+
+  if (!nav) {
     return;
   }
+
+  nav.addEventListener('click', (e) => {
+    if (e.target.tagName.toLowerCase() !== "a") {
+      return;
+    }
+
+    close();
+  });
 
   navOpen.addEventListener('click', (e) => {
     nav.classList.add('menu-open');
     document.body.classList.add('body-menu-open');
   });
 
-  navClose.addEventListener('click', (e) => {
-    nav.classList.remove('menu-open');
-    document.body.classList.remove('body-menu-open');
-  });
+  navClose.addEventListener('click', close);
 }
 
 MenuController();

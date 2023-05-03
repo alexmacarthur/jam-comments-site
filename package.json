@@ -30,16 +30,16 @@
     "postcss-cli": "^10.1.0",
     "quicklink": "^2.3.0",
     "slide-element": "^2.3.1",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "@11ty/eleventy-img": "^3.1.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "autoprefixer": "^10.4.14",
-    "cssnano": "^6.0.0",
+    "cssnano": "^6.0.1",
     "postcss": "^8.4.23",
     "postcss-nested": "^6.0.1",
     "prettier": "^2.8.8",
-    "vite": "^4.3.1"
+    "vite": "^4.3.4"
   }
 }
