@@ -3,7 +3,7 @@ layout: layout-page.njk
 title: Contributor Authentication
 ---
 
-No contributor is required to create an account to post a comment. It's similar to dropping on a WordPress site -- give a name and an optional email address, and you're set. When someone replies to a comment from such an author, that author will be notified via email that someone has replied.
+Nobody's required to create an account to post a comment. It's similar to dropping on a WordPress site -- give a name and an optional email address, and you're set. When someone replies to a comment from such an author, that author will be notified via email that someone has replied.
 
 However, there are advantages to creating a dedicated account before commenting:
 
@@ -19,6 +19,12 @@ You can't do this if you leave a comment anonymously.
 
 It's not shipped now, but eventually, some sort of UI treat will be left next to comments that were left by authenticated individuals, rather than potentially some internet troll.
 
+JamComments support quickly creating a free account easily on any comment form. Here's how that flow works:
 
+![contributor authentication demo](/assets/img/auth-demo.gif)
 
+## Viewing Past Comments
 
+You can view comments you've left over time by logging in here:
+
+https://go.jamcomments.com/by/login
