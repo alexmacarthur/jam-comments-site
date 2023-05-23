@@ -23,4 +23,8 @@ module.exports = [
     heading: "Bridgetown.rb",
     docs: "/docs/integrations/bridgetown",
   },
+  {
+    heading: "Remix",
+    docs: "/docs/integrations/remix",
+  },
 ];
