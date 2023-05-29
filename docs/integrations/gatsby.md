@@ -25,6 +25,8 @@ module.exports = {
       options: {
         apiKey: process.env.JAM_COMMENTS_API_KEY,
         domain: process.env.JAM_COMMENTS_DOMAIN,
+        environment: process.env.NODE_ENV,
+        tz: "America/Chicago"
       },
     },
   ],
