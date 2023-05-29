@@ -9,7 +9,7 @@ These instructions assume you've already created a JamComments account as well a
 
 ## Installation & Configuration
 
-Install the plugin by running `npm install @jam-comments/astro` or `yarn add @jam-comments/astro`. After doing so, configure it by setting the following environment variables in your site:
+Install the plugin by running `npm install @jam-comments/astro` or `yarn add @jam-comments/astro`. After doing so, you can configure it by setting the following environment variables in your site:
 
 | Syntax                     | Description                                                                                                                       |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,6 +30,25 @@ const { url } = Astro.props;
 // The rest of your markup...
 
 <JamComments path={url} />
+```
+
+If you'd like to more explicitly configure the integration, you can also pass the following props to the component, rather than relying on environment variables:
+
+```js
+import JamComments from '@jam-comments/astro';
+
+const { url } = Astro.props;
+---
+
+// The rest of your markup...
+
+<JamComments
+  path={url}
+  apiKey="123ABC"
+  domain="whatever.com"
+  environment="production"
+  tz="America/Chicago
+/>
 ```
 
 ### Contributions
