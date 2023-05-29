@@ -27,14 +27,16 @@ const jamComments = require('@jam-comments/eleventy');
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(jamComments, {
     domain: process.env.JAM_COMMENTS_DOMAIN,
-    apiKey: process.env.JAM_COMMENTS_API_KEY
+    apiKey: process.env.JAM_COMMENTS_API_KEY,
+    environment: process.env.NODE_ENV, // Optional.
+    tz: "America/Chicago" // Optional.
   });
 });
 ```
 
 ## Displaying Comments
 
-Embed the `jamcomments` Nunjucks shortcode in the template that renders individual posts or pages.
+Embed the `jamcomments` Nunjucks shortcode in the template that renders individual posts or pages. Note that explicitly passing the `path.url` is optional. If it's not provided, it'll use the current path as indicated by Eleventy on build.
 
 ```html
 <h1>My Page Title</h1>
@@ -42,7 +44,7 @@ Embed the `jamcomments` Nunjucks shortcode in the template that renders individu
 <p>Here's some page content.</p>
 
 <!-- Form and comments will render here! -->
-{% jamcomments %}
+{% jamcomments path.url %}
 ```
 
 ## Supported Rendering Engines
