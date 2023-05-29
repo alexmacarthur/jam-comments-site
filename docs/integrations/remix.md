@@ -30,7 +30,7 @@ After installation, set the following environment variables for your Remix appli
 
 ## Usage
 
-In the loader responsible for rendering comments for a post, use the `fetchMarkup` function with your environment variables to retrieve your comments. Then, pass that data to the `<JamComments />` component.
+In the loader responsible for rendering comments for a post, use the `fetchMarkup` function with your environment variables to retrieve your comments. Then, pass that data to the `<JamComments />` component. For more information on fetch options, [see here](https://jamcomments.com/docs/fetching/).
 
 ```tsx
 // posts.$slug.tsx
@@ -46,6 +46,7 @@ export const loader = async ({ params }) => {
     domain: process.env.JAM_COMMENTS_DOMAIN,
     apiKey: process.env.JAM_COMMENTS_API_KEY,
     path: `/posts/${params.slug}`,
+    tz: "America/Chicago" // <-- optional
   });
 
   return json({ post, markup });

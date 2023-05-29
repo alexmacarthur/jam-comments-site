@@ -17,7 +17,7 @@ That functionality has yet to be built into the application, but I can get it fo
 
 ### Can I migrate data from Disqus?
 
-Not yet.
+Not yet. But it is possible to do so with your [WordPress comments](https://jamcomments.com/docs/import/#importing-from-wordpress).
 
 ### What will the Hobby plan get me?
 
