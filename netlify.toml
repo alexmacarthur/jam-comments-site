@@ -1,5 +1,5 @@
 [build.environment]
-  NODE_VERSION = "17.5.0"
+  NODE_VERSION = "20.3.0"
 
 [[redirects]]
   from = "/docs"

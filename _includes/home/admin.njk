@@ -3,20 +3,19 @@
     <img
       class="border-1 rounded-sm mb-16 md:mb-20 max-w-3xl mx-auto w-full"
       alt="administration panel example"
-      src="https://picperf.dev/https://jamcomments.com/assets/img/comment-management-example.gif"
+      src="https://picperf.io/https://jamcomments.com/assets/img/comment-management-example.gif"
       loading="lazy"
-    />
+/>
     <ul class="grid md:grid-cols-2 gap-10">
       {% for highlight in moderationHighlights %}
         <li>
           <h3 class="text-2xl font-semibold leading-tight mb-2">
-              {{ highlight.heading | safe }}
+            {{ highlight.heading | safe }}
           </h3>
           <p>
-              {{ highlight.description | safe }}
+            {{ highlight.description | safe }}
           </p>
         </li>
       {% endfor %}
-    <ul>
-  </div>
-</div>
+      <ul></div>
+    </div>
