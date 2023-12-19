@@ -1,22 +1,23 @@
 <div class="max-w-5xl mx-auto">
-  <div class="grid gap-6 grid-cols-1 md:grid-cols-uneven">
-    <img
-      class="border-1 mb-12 md:mb-0"
+  <ul class="space-y-12 grid gap-3 grid-cols-2 lg:grid-cols-3">
+    <li class="col-span-2 md:col-span-1 lg:col-span-2 lg:row-span-3">
+      <img
+      class="border-1"
       alt="example comment form"
       src="https://picperf.io/https://jamcomments.com/assets/img/example-submission.gif"
       loading="lazy"
 />
-    <ul class="space-y-12">
-      {% for highlight in homeHighlights %}
-        <li>
-          <h3 class="text-2xl font-semibold leading-tight mb-2">
-            {{ highlight.heading }}
-          </h3>
-          <p>
-            {{ highlight.description | safe }}
-          </p>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+    </li>
+
+    {% for highlight in homeHighlights %}
+      <li>
+        <h3 class="text-2xl font-semibold leading-tight mb-2">
+          {{ highlight.heading }}
+        </h3>
+        <p>
+          {{ highlight.description | safe }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
