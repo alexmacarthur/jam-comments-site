@@ -3,9 +3,9 @@ layout: layout-page.njk
 title: Importing Comments from WordPress
 ---
 
-You can import your WordPress comments by uploading a CSV file on the [import page](https://go.jamcomments/settings/import/wordpress) within the JamComments dashboard.
+You can import your WordPress comments by uploading a CSV file on the [import page](https://go.jamcomments.com/settings/import/wordpress) within the JamComments dashboard.
 
-![Image Upload Demo](/assets/img/import-demo.gif)
+<video src="/assets/video/wordpress-import-demo.mp4" autoplay controls></video>
 
 ## Importing from WordPress
 

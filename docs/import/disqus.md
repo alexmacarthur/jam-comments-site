@@ -19,7 +19,7 @@ For more information on this process, [see here](https://help.disqus.com/en/arti
 
 After downloading the XML export of your comments, navigate to the "Import from Disqus" page in [the JamComments admin](https://go.jamcomments.com/settings/import/disqus).
 
-<video src="/assets/img/disqus-import-demo.mp4" autoplay controls></video>
+<video src="/assets/video/disqus-import-demo.mp4" autoplay controls></video>
 
 ## About Imported Comments
 
