@@ -7,7 +7,7 @@ module.exports = [
   },
   {
     title: "Pro",
-    price: "$5/month",
+    price: "$4/month",
     description:
       "Now you're serious. Use on up to three sites with <strong>unlimited comments</strong>.",
   },

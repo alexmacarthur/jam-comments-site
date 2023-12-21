@@ -1,13 +1,14 @@
-<div class="max-w-5xl mx-auto">
-  <ul class="grid grid-cols-1 md:grid-cols-2 mb-12 gap-12">
+<div class="max-w-7xl mx-auto">
+  <ul class="grid grid-cols-1 md:grid-cols-3 mb-12 gap-10">
     {% for price in pricing %}
       <li class="text-center">
         <div class="max-w-xs mx-auto">
-          <h3 class="text-3xl md:text-4xl font-bold">
+          <h3 class="text-3xl md:text-4xl font-bold mb-2">
             {{ price.title }}
             <span>
               {{ price.price }}
-            <span>
+            </span>
+
           </h3>
           <span>
             {{ price.description | safe }}
@@ -15,5 +16,14 @@
         </div>
       </li>
     {% endfor %}
+
+    <li class="text-center">
+      <div class="max-w-xs mx-auto">
+        <h3 class="text-3xl md:text-4xl mb-2">
+          Need something special?</h3>
+
+        <span>Get in touch. We'll work something out.</span>
+      </div>
+    </li>
   </ul>
 </div>
